@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>System Zabezpieczenia Tras i Biegów Masowych v2.5 - Edytor</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+#panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 340px;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+    padding: 15px;
+    box-sizing: border-box;
+    z-index: 9999;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+#map {
+    position: absolute;
+    left: 340px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.section-title {
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
+}
+
+.grid-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.mode-btn {
+    padding: 8px 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 11px;
+    border: 1px solid #ccc;
+    background: #fdfdfd;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.mode-btn:hover {
+    background: #f0f0f0;
+}
+
+.mode-btn.active {
+    color: white;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
+}
+
+/* Kolorystyka przycisków aktywnych w panelu bocznym */
+.mode-btn[data-mode="Wolontariusz"].active { background: #007bff; border-color: #007bff; }
+.mode-btn[data-mode="Lider"].active { background: #17a2b8; border-color: #17a2b8; }
+.mode-btn[data-mode="Ochrona"].active { background: #dc3545; border-color: #dc3545; }
+.mode-btn[data-mode="Kierowanie ruchem"].active { background: #004085; border-color: #004085; }
+.mode-btn[data-mode="Medyczny"].active { background: #28a745; border-color: #28a745; }
+.mode-btn[data-mode="Płoty"].active { background: #343a40; border-color: #343a40; }
+.mode-btn[data-mode="Toaleta"].active { background: #6f42c1; border-color: #6f42c1; }
+.mode-btn[data-mode="Punkt żywieniowy"].active { background: #fd7e14; border-color: #fd7e14; }
+
+/* Zaawansowane graficzne ikony na mapie */
+.custom-marker-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px !important;
+    height: 24px !important;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    cursor: grab;
+    transition: transform 0.1s;
+}
+.custom-marker-icon:active {
+    cursor: grabbing;
+    transform: scale(1.2);
+}
+
+.icon-wolontariusz { background: #007bff; }
+.icon-lider       { background: #17a2b8; border-radius: 4px; }
+.icon-ochrona      { background: #dc3545; border-color: #ffc107; }
+.icon-ruchem       { background: #004085; }
+.icon-medyczny     { background: #28a745; }
+.icon-ploty        { background: #343a40; border-color: #f8f9fa; }
+.icon-toaleta      { background: #6f42c1; }
+.icon-zywieniowy   { background: #fd7e14; }
+
+.btn-ctrl {
+    width: 100%;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.btn-main { background: #28a745; color: white; border: none; }
+.btn-danger { background: #dc3545; color: white; border: none; }
+.btn-secondary { background: #6c757d; color: white; border: none; }
+
+.gpx-route-box {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+.gpx-input-row {
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+.gpx-input-row:last-child {
+    margin-bottom: 0;
+}
+.gpx-input-row label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.filter-item input {
+    margin-right: 6px;
+}
+
+.stat-table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+.stat-table th, .stat-table td {
+    border: 1px solid #eee;
+    padding: 4px;
+    text-align: left;
+}
+
+.stat-table th { background: #f8f9fa; }
+
+.search-box {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.pointItem {
+    border: 1px solid #ddd;
+    margin-bottom: 6px;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #fff;
+    font-size: 13px;
+    position: relative;
+    transition: background 0.2s;
+}
+
+.pointItem:hover { background: #f1f3f5; }
+
+.action-btn {
+    border: none;
+    padding: 3px 6px;
+    cursor: pointer;
+    font-size: 10px;
+    border-radius: 3px;
+    margin-left: 3px;
+}
+
+.btn-edit { background: orange; color: white; }
+.btn-delete { background: red; color: white; }
+
+.coords {
+    font-family: monospace;
+    font-size: 10px;
+    color: #777;
+}
+
+.popup-form label {
+    font-size: 11px;
+    font-weight: bold;
+    display: block;
+    margin-top: 4px;
+}
+
+.popup-input, .popup-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 3px;
+    font-size: 12px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.popup-textarea { height: 50px; resize: vertical; }
+.popup-btn-container { margin-top: 8px; display: flex; gap: 4px; }
+.popup-btn { padding: 5px 8px; cursor: pointer; font-size: 12px; font-weight: bold; border-radius: 3px; border: 1px solid #ccc; }
+
+.badge-sector {
+    background: #e9ecef;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div id="panel">
+    <h2 style="margin-top:0; margin-bottom:10px; font-size:20px; color:#333;">Zabezpieczenie Biegu</h2>
+    
+    <div style="margin-bottom: 10px;">
+        <label style="font-size:12px; font-weight:bold;">Nazwa Projektu:</label>
+        <input type="text" id="projectNameInput" class="popup-input" value="Silesia Marathon 2026" style="font-weight:bold; font-size:13px;" oninput="updateProjectTitle()">
+    </div>
+
+    <button class="btn-ctrl btn-danger" onclick="clearProject()">Nowy Projekt</button>
+    <div class="grid-buttons" style="margin-top: 5px;">
+        <button class="btn-ctrl btn-secondary" onclick="document.getElementById('jsonFileInput').click()">Import JSON</button>
+        <button class="btn-ctrl btn-secondary" style="background: #4b6584;" onclick="document.getElementById('xlsxFileInput').click()">Import XLSX</button>
+    </div>
+    <input type="file" id="jsonFileInput" accept=".json" style="display:none;" onchange="importJSON(event)">
+    <input type="file" id="xlsxFileInput" accept=".xlsx" style="display:none;" onchange="importExcel(event)">
+
+    <div class="section-title">Trasy GPX (Max 3)</div>
+    <div class="gpx-route-box">
+        <div class="gpx-input-row">
+            <label style="color: #007bff;"><i class="fa-solid fa-route"></i> Trasa SM (Niebieska):</label>
+            <input type="file" id="gpxFileSM" accept=".gpx" style="width:100%; font-size:11px;" onchange="loadGpxRoute('SM', this)">
+        </div>
+        <div class="gpx-input-row">
+            <label style="color: #dc3545;"><i class="fa-solid fa-route"></i> Trasa HM (Czerwona):</label>
+            <input type="file" id="gpxFileHM" accept=".gpx" style="width:100%; font-size:11px;" onchange="loadGpxRoute('HM', this)">
+        </div>
+        <div class="gpx-input-row">
+            <label style="color: #20c997;"><i class="fa-solid fa-route"></i> Trasa UM (Seledynowa):</label>
+            <input type="file" id="gpxFileUM" accept=".gpx" style="width:100%; font-size:11px;" onchange="loadGpxRoute('UM', this)">
+        </div>
+    </div>
+
+    <div class="section-title">Tryb dodawania punktów</div>
+    <div class="grid-buttons">
+        <button class="mode-btn" data-mode="Wolontariusz" onclick="setMode('Wolontariusz')">Wolontariusz</button>
+        <button class="mode-btn" data-mode="Lider" onclick="setMode('Lider')">Lider</button>
+        <button class="mode-btn" data-mode="Ochrona" onclick="setMode('Ochrona')">Ochrona</button>
+        <button class="mode-btn" data-mode="Kierowanie ruchem" onclick="setMode('Kierowanie ruchem')">Kier. Ruchem</button>
+        <button class="mode-btn" data-mode="Medyczny" onclick="setMode('Medyczny')">Medyczny</button>
+        <button class="mode-btn" data-mode="Płoty" onclick="setMode('Płoty')">Płoty</button>
+        <button class="mode-btn" data-mode="Toaleta" onclick="setMode('Toaleta')">Toaleta</button>
+        <button class="mode-btn" data-mode="Punkt żywieniowy" onclick="setMode('Punkt żywieniowy')">Pt. Żywieniowy</button>
+    </div>
+
+    <div class="section-title">Eksport Danych</div>
+    <div class="grid-buttons">
+        <button class="btn-ctrl btn-main" onclick="exportJSON()">Eksport JSON</button>
+        <button class="btn-ctrl btn-main" style="background:#1f7a3e;" onclick="exportExcel()">Eksport XLSX</button>
+    </div>
+
+    <div class="section-title">Filtrowanie warstw</div>
+    <div id="filterContainer" style="max-height: 120px; overflow-y: auto; background:#f8f9fa; padding:5px; border-radius:4px; border:1px solid #ddd;"></div>
+
+    <div class="section-title">Wyszukiwarka</div>
+    <input type="text" id="searchPointInput" class="search-box" placeholder="Szukaj numeru np. LID-002..." oninput="searchPoints()">
+
+    <div class="section-title">Statystyki Live</div>
+    <table class="stat-table">
+        <thead>
+            <tr><th>Typ</th><th>Ilość</th><th>Obsada (os.)</th></tr>
+        </thead>
+        <tbody id="statTableBody"></tbody>
+    </table>
+
+    <div class="section-title">Lista Punktów (<span id="pointsCount">0</span>)</div>
+    <div id="pointList" style="max-height:300px; overflow-y:auto; margin-top:5px;"></div>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<script>
+// Konfiguracja typów punktów
+const CONFIG_TYPES = {
+    "Wolontariusz":      { prefix: "WOL",   className: "icon-wolontariusz", faIcon: "fa-solid fa-user",          color: "#007bff" },
+    "Lider":             { prefix: "LID",   className: "icon-lider",        faIcon: "fa-solid fa-bullhorn",      color: "#17a2b8" },
+    "Ochrona":          { prefix: "OCHR",  className: "icon-ochrona",      faIcon: "fa-solid fa-shield-halved", color: "#dc3545" },
+    "Kierowanie ruchem": { prefix: "RUCH",  className: "icon-ruchem",       faIcon: "fa-solid fa-car",           color: "#004085" },
+    "Medyczny":          { prefix: "MED",   className: "icon-medyczny",     faIcon: "fa-solid fa-heart-pulse",   color: "#28a745" },
+    "Płoty":             { prefix: "PLOT",  className: "icon-ploty",        faIcon: "fa-solid fa-road-barrier",  color: "#343a40" },
+    "Toaleta":           { prefix: "TOAL",  className: "icon-toaleta",      faIcon: "fa-solid fa-restroom",      color: "#6f42c1" },
+    "Punkt żywieniowy":  { prefix: "ZYW",   className: "icon-zywieniowy",   faIcon: "fa-solid fa-droplet",       color: "#fd7e14" }
+};
+
+// Konfiguracja stylów dla 3 niezależnych tras GPX
+const CONFIG_ROUTES = {
+    "SM": { color: "#007bff", weight: 5, layer: null },
+    "HM": { color: "#dc3545", weight: 5, layer: null },
+    "UM": { color: "#20c997", weight: 5, layer: null }
+};
+
+const map = L.map('map').setView([50.2649, 19.0238], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+// Przypisanie warstw tras do mapy
+Object.keys(CONFIG_ROUTES).forEach(key => {
+    CONFIG_ROUTES[key].layer = L.geoJSON(null, {
+        style: { color: CONFIG_ROUTES[key].color, weight: CONFIG_ROUTES[key].weight }
+    }).addTo(map);
+});
+
+let currentMode = null;
+let points = [];
+let projectName = "Silesia Marathon 2026";
+let activeFilters = {};
+
+function generateUUID() {
+    if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+        return crypto.randomUUID();
+    }
+    return 'id-' + Math.random().toString(36).substr(2, 9) + '-' + Date.now().toString(36);
+}
+
+function updateProjectTitle() {
+    projectName = document.getElementById("projectNameInput").value;
+}
+
+function initFilters() {
+    const container = document.getElementById("filterContainer");
+    container.innerHTML = "";
+    Object.keys(CONFIG_TYPES).forEach(type => {
+        activeFilters[type] = true;
+        const div = document.createElement("div");
+        div.className = "filter-item";
+        div.innerHTML = `
+            <input type="checkbox" id="filter_${type}" checked onchange="toggleFilter('${type}', this.checked)">
+            <span style="display:inline-block; width:14px; text-align:center; margin-right:5px; color:${CONFIG_TYPES[type].color};"><i class="${CONFIG_TYPES[type].faIcon}"></i></span>
+            <label for="filter_${type}" style="cursor:pointer; font-weight:bold;">${type}</label>
+        `;
+        container.appendChild(div);
+    });
+}
+initFilters();
+
+function toggleFilter(type, isVisible) {
+    activeFilters[type] = isVisible;
+    points.forEach(p => {
+        if (p.typ === type) {
+            if (isVisible) {
+                if (!map.hasLayer(p.marker)) p.marker.addTo(map);
+            } else {
+                if (map.hasLayer(p.marker)) map.removeLayer(p.marker);
+            }
+        }
+    });
+    refreshList();
+    updateStats();
+}
+
+function setMode(mode) {
+    currentMode = mode;
+    document.querySelectorAll(".mode-btn").forEach(btn => btn.classList.remove("active"));
+    const activeBtn = document.querySelector(`.mode-btn[data-mode="${mode}"]`);
+    if(activeBtn) activeBtn.classList.add("active");
+}
+
+function loadGpxRoute(routeKey, inputElement) {
+    const file = inputElement.files[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const parser = new DOMParser();
+        const gpx = parser.parseFromString(event.target.result, "text/xml");
+        const geojson = toGeoJSON.gpx(gpx);
+        
+        const routeCfg = CONFIG_ROUTES[routeKey];
+        routeCfg.layer.clearLayers();
+        routeCfg.layer.addData(geojson);
+        
+        fitMapToAllRoutes();
+    };
+    reader.readAsText(file);
+}
+
+function fitMapToAllRoutes() {
+    const bounds = L.latLngBounds([]);
+    let hasLayers = false;
+    
+    Object.keys(CONFIG_ROUTES).forEach(key => {
+        const layer = CONFIG_ROUTES[key].layer;
+        if (layer.getLayers().length > 0) {
+            bounds.extend(layer.getBounds());
+            hasLayers = true;
+        }
+    });
+    
+    if (hasLayers) {
+        map.fitBounds(bounds);
+    }
+}
+
+function generateNextNumber(type) {
+    const cfg = CONFIG_TYPES[type];
+    if (!cfg) return "";
+    const filtered = points.filter(p => p.typ === type);
+    let maxNum = 0;
+    const regex = new RegExp(`^${cfg.prefix}-0*(\\d+)$`);
+    
+    filtered.forEach(p => {
+        const match = p.numer.trim().toUpperCase().match(regex);
+        if (match) {
+            const val = parseInt(match[1], 10);
+            if (val > maxNum) maxNum = val;
+        }
+    });
+    const nextVal = maxNum + 1;
+    return `${cfg.prefix}-${String(nextVal).padStart(3, '0')}`;
+}
+
+map.on("click", function(e) {
+    if (!currentMode) {
+        alert("Wybierz typ punktu z panelu bocznego, aby dodać znacznik.");
+        return;
+    }
+    showAddPopup(e.latlng);
+});
+
+function showAddPopup(latlng) {
+    const autoNum = generateNextNumber(currentMode);
+    const popupContent = `
+        <div class="popup-form" style="width:240px">
+            <b style="color:${CONFIG_TYPES[currentMode].color}; font-size:14px;"><i class="${CONFIG_TYPES[currentMode].faIcon}"></i> Dodaj: ${currentMode}</b><br>
+            
+            <label>Numer identyfikacyjny:</label>
+            <input id="newNumber" class="popup-input" value="${autoNum}">
+            
+            <label>Sektor:</label>
+            <input id="newSector" class="popup-input" placeholder="np. A, Trasa, Rondo">
+            
+            <label>Liczba osób:</label>
+            <input type="number" id="newPeople" class="popup-input" value="1" min="0">
+            
+            <label>Telefon kontaktowy:</label>
+            <input id="newPhone" class="popup-input" placeholder="np. +48 500...">
+            
+            <label>Uwagi / opis lokacji:</label>
+            <textarea id="newNotes" class="popup-textarea" placeholder="Wpisz opis lokalizacji..."></textarea>
+            
+            <div class="popup-btn-container">
+                <button class="popup-btn btn-main" onclick="savePoint(${latlng.lat}, ${latlng.lng})">Zapisz</button>
+                <button class="popup-btn" onclick="map.closePopup()">Anuluj</button>
+            </div>
+        </div>
+    `;
+
+    L.popup().setLatLng(latlng).setContent(popupContent).openOn(map);
+}
+
+function savePoint(lat, lng) {
+    const numer = document.getElementById("newNumber").value.trim();
+    const sector = document.getElementById("newSector").value.trim();
+    const liczba_osob = parseInt(document.getElementById("newPeople").value, 10) || 0;
+    const telefon = document.getElementById("newPhone").value.trim();
+    const uwagi = document.getElementById("newNotes").value.trim();
+
+    if (!numer) {
+        alert("Numer punktu nie może być pusty!");
+        return;
+    }
+
+    const pointId = generateUUID();
+    createMarkerAndAdd(pointId, currentMode, numer, sector, liczba_osob, telefon, uwagi, lat, lng);
+    
+    map.closePopup();
+    refreshList();
+    updateStats();
+}
+
+function createMarkerAndAdd(id, typ, numer, sektor, liczba_osob, telefon, uwagi, lat, lng) {
+    const cfg = CONFIG_TYPES[typ];
+    const iconClassName = cfg ? cfg.className : "";
+    const iconFa = cfg ? cfg.faIcon : "fa-solid fa-location-dot";
+    
+    const customIcon = L.divIcon({
+        className: `custom-marker-icon ${iconClassName}`,
+        html: `<div><i class="${iconFa}"></i></div>`,
+        iconSize: [24, 24],
+        iconAnchor: [12, 12]
+    });
+
+    const marker = L.marker([lat, lng], {
+        icon: customIcon,
+        draggable: true
+    });
+
+    if (activeFilters[typ]) {
+        marker.addTo(map);
+    }
+
+    const point = { id, typ, numer, sektor, liczba_osob, telefon, uwagi, lat, lng, marker };
+    points.push(point);
+
+    marker.on('dragend', function(e) {
+        const newPos = e.target.getLatLng();
+        point.lat = newPos.lat;
+        point.lng = newPos.lng;
+        
+        updatePopupContent(point);
+        refreshList();
+        updateStats();
+    });
+
+    updatePopupContent(point);
+}
+
+function updatePopupContent(point) {
+    const cfg = CONFIG_TYPES[point.typ];
+    point.marker.bindPopup(`
+        <div class="popup-form" style="width:240px">
+            <b style="color:${cfg.color}; font-size:14px;"><i class="${cfg.faIcon}"></i> Edycja: ${point.typ}</b><br>
+            
+            <label>Numer identyfikacyjny:</label>
+            <input id="nr_${point.id}" class="popup-input" value="${point.numer}">
+            
+            <label>Sektor:</label>
+            <input id="sek_${point.id}" class="popup-input" value="${point.sektor}">
+            
+            <label>Liczba osób:</label>
+            <input type="number" id="peop_${point.id}" class="popup-input" value="${point.liczba_osob}" min="0">
+            
+            <label>Telefon kontaktowy:</label>
+            <input id="tel_${point.id}" class="popup-input" value="${point.telefon}">
+            
+            <label>Uwagi / opis lokacji:</label>
+            <textarea id="uwagi_${point.id}" class="popup-textarea">${point.uwagi}</textarea>
+            
+            <div class="coords">Współrzędne: ${point.lat.toFixed(5)}, ${point.lng.toFixed(5)}</div>
+            
+            <div class="popup-btn-container">
+                <button class="popup-btn btn-main" onclick="saveEdit('${point.id}')">Zapisz</button>
+                <button class="popup-btn btn-danger" onclick="deletePoint('${point.id}')">Usuń</button>
+            </div>
+        </div>
+    `);
+}
+
+function saveEdit(id) {
+    const point = points.find(p => p.id === id);
+    if (!point) return;
+
+    const newNum = document.getElementById("nr_" + id).value.trim();
+    if (!newNum) {
+        alert("Numer punktu nie może być pusty!");
+        return;
+    }
+
+    point.numer = newNum;
+    point.sektor = document.getElementById("sek_" + id).value.trim();
+    point.liczba_osob = parseInt(document.getElementById("peop_" + id).value, 10) || 0;
+    point.telefon = document.getElementById("tel_" + id).value.trim();
+    point.uwagi = document.getElementById("uwagi_" + id).value.trim();
+
+    updatePopupContent(point);
+    refreshList();
+    updateStats();
+    point.marker.openPopup();
+}
+
+function deletePoint(id) {
+    if (!confirm("Czy na pewno chcesz bezpowrotnie usunąć ten punkt?")) return;
+    const index = points.findIndex(p => p.id === id);
+    if (index === -1) return;
+
+    map.removeLayer(points[index].marker);
+    points.splice(index, 1);
+
+    refreshList();
+    updateStats();
+    map.closePopup();
+}
+
+function refreshList() {
+    let html = "";
+    const searchVal = document.getElementById("searchPointInput").value.toLowerCase().trim();
+
+    points.forEach(p => {
+        if (!activeFilters[p.typ]) return;
+        if (searchVal && !p.numer.toLowerCase().includes(searchVal)) return;
+
+        html += `
+        <div class="pointItem" onclick="focusPoint('${p.id}')" style="border-left: 5px solid ${CONFIG_TYPES[p.typ].color};">
+            <div style="float:right">
+                <button class="action-btn btn-edit" onclick="event.stopPropagation(); focusPoint('${p.id}');"><i class="fa-solid fa-pen"></i></button>
+                <button class="action-btn btn-delete" onclick="event.stopPropagation(); deletePoint('${p.id}');"><i class="fa-solid fa-trash"></i></button>
+            </div>
+            <b><i class="${CONFIG_TYPES[p.typ].faIcon}"></i> ${p.typ}</b> - <span style="font-weight:bold; color:#111;">${p.numer}</span>
+            ${p.sektor ? `<span class="badge-sector">Sek: ${p.sektor}</span>` : ''}
+            <br>
+            <small style="display:block; margin:2px 0; color:#555;">
+                ${p.liczba_osob ? `Obsada: <b>${p.liczba_osob} os.</b>` : ''} 
+                ${p.telefon ? ` | Tel: ${p.telefon}` : ''}
+            </small>
+            <small style="color:#666; font-style:italic;">${p.uwagi ? p.uwagi : 'Brak uwag.'}</small>
+            <div class="coords">${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}</div>
+        </div>
+        `;
+    });
+
+    document.getElementById("pointList").innerHTML = html;
+    document.getElementById("pointsCount").innerText = points.filter(p => activeFilters[p.typ]).length;
+}
+
+function focusPoint(id) {
+    const point = points.find(p => p.id === id);
+    if (!point) return;
+    map.setView([point.lat, point.lng], 17);
+    point.marker.openPopup();
+}
+
+function searchPoints() {
+    refreshList();
+}
+
+function updateStats() {
+    let html = "";
+    let grandTotalPoints = 0;
+    let grandTotalPeople = 0;
+
+    Object.keys(CONFIG_TYPES).forEach(type => {
+        const matching = points.filter(p => p.typ === type);
+        const countPoints = matching.length;
+        const countPeople = matching.reduce((sum, p) => sum + (p.liczba_osob || 0), 0);
+
+        grandTotalPoints += countPoints;
+        grandTotalPeople += countPeople;
+
+        if(countPoints > 0) {
+            html += `
+                <tr>
+                    <td><span style="display:inline-block; width:14px; color:${CONFIG_TYPES[type].color}; margin-right:5px; text-align:center;"><i class="${CONFIG_TYPES[type].faIcon}"></i></span>${type}</td>
+                    <td><b>${countPoints}</b></td>
+                    <td>${countPeople}</td>
+                </tr>
+            `;
+        }
+    });
+
+    if(grandTotalPoints === 0) {
+        html = `<tr><td colspan="3" style="text-align:center; color:#999;">Brak naniesionych punktów</td></tr>`;
+    } else {
+        html += `
+            <tr style="background:#e9ecef; font-weight:bold; border-top:2px solid #ccc;">
+                <td>RAZEM</td>
+                <td>${grandTotalPoints}</td>
+                <td>${grandTotalPeople}</td>
+            </tr>
+        `;
+    }
+    document.getElementById("statTableBody").innerHTML = html;
+}
+updateStats();
+
+function clearProject() {
+    if (!confirm("Czy chcesz usunąć wszystkie punkty i zresetować projekt? Dane zostaną utracone.")) return;
+    points.forEach(p => map.removeLayer(p.marker));
+    points = [];
+    
+    Object.keys(CONFIG_ROUTES).forEach(key => {
+        CONFIG_ROUTES[key].layer.clearLayers();
+    });
+    document.getElementById("gpxFileSM").value = "";
+    document.getElementById("gpxFileHM").value = "";
+    document.getElementById("gpxFileUM").value = "";
+    
+    document.getElementById("searchPointInput").value = "";
+    initFilters();
+    refreshList();
+    updateStats();
+}
+
+function exportJSON() {
+    const exportData = {
+        projectName: projectName,
+        generatedAt: new Date().toISOString(),
+        points: points.map(p => ({
+            typ: p.typ,
+            numer: p.numer,
+            sektor: p.sektor,
+            liczba_osob: p.liczba_osob,
+            telefon: p.telefon,
+            uwagi: p.uwagi,
+            lat: p.lat,
+            lng: p.lng
+        }))
+    };
+
+    const jsonString = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, 2));
+    const downloadAnchor = document.createElement("a");
+    downloadAnchor.href = jsonString;
+    downloadAnchor.download = `${projectName.toLowerCase().replace(/\s+/g, '_')}_projekt.json`;
+    downloadAnchor.click();
+}
+
+function importJSON(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = JSON.parse(e.target.result);
+            
+            points.forEach(p => map.removeLayer(p.marker));
+            points = [];
+
+            if (data.projectName) {
+                projectName = data.projectName;
+                document.getElementById("projectNameInput").value = projectName;
+            }
+
+            const pointsArray = data.points || (Array.isArray(data) ? data : []);
+
+            pointsArray.forEach(p => {
+                let currentType = p.typ;
+                if(currentType === "Policja") currentType = "Kierowanie ruchem";
+                if(currentType === "Koordynator") currentType = "Lider";
+                
+                if(!CONFIG_TYPES[currentType]) return;
+
+                const id = generateUUID();
+                createMarkerAndAdd(
+                    id, 
+                    currentType, 
+                    p.numer || "", 
+                    p.sektor || "", 
+                    parseInt(p.liczba_osob, 10) || 0, 
+                    p.telefon || "", 
+                    p.uwagi || "", 
+                    p.lat, 
+                    p.lng
+                );
+            });
+
+            initFilters();
+            refreshList();
+            updateStats();
+            
+            if(points.length > 0) {
+                const group = new L.featureGroup(points.map(p => p.marker));
+                map.fitBounds(group.getBounds());
+            }
+            alert("Projekt JSON został zaimportowany pomyślnie!");
+        } catch (err) {
+            alert("Błąd podczas odczytu pliku JSON.");
+            console.error(err);
+        }
+    };
+    reader.readAsText(file);
+    event.target.value = "";
+}
+
+function exportExcel() {
+    if (points.length === 0) {
+        alert("Brak danych do wyeksportowania do pliku Excel!");
+        return;
+    }
+
+    const rows = points.map((p, idx) => ({
+        "Lp.": idx + 1,
+        "Typ punktu": p.typ,
+        "Numer identyfikacyjny": p.numer,
+        "Sektor / Odcinek": p.sektor,
+        "Obsada (Liczba osób)": p.liczba_osob,
+        "Telefon kontaktowy": p.telefon,
+        "Uwagi i opis lokalizacji": p.uwagi,
+        "Szerokość geogr. (Lat)": p.lat,
+        "Długość geogr. (Lng)": p.lng
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(rows);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Zabezpieczenie trasy");
+
+    worksheet["!cols"] = [
+        { wch: 5 },  { wch: 22 }, { wch: 15 }, { wch: 15 }, 
+        { wch: 10 }, { wch: 15 }, { wch: 45 }, { wch: 12 }, { wch: 12 }
+    ];
+
+    XLSX.writeFile(workbook, `${projectName.toLowerCase().replace(/\s+/g, '_')}_raport.xlsx`);
+}
+
+function importExcel(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+            
+            const firstSheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[firstSheetName];
+            const rawRows = XLSX.utils.sheet_to_json(worksheet);
+            
+            if (rawRows.length === 0) {
+                alert("Wybrany plik Excel jest pusty.");
+                return;
+            }
+
+            points.forEach(p => map.removeLayer(p.marker));
+            points = [];
+
+            let importedCount = 0;
+
+            rawRows.forEach(row => {
+                let typ = row["Typ punktu"];
+                const numer = row["Numer identyfikacyjny"] ? String(row["Numer identyfikacyjny"]) : "";
+                const sektor = row["Sektor / Odcinek"] ? String(row["Sektor / Odcinek"]) : "";
+                const liczba_osob = parseInt(row["Obsada (Liczba osób)"], 10) || 0;
+                const telefon = row["Telefon kontaktowy"] ? String(row["Telefon kontaktowy"]) : "";
+                const uwagi = row["Uwagi i opis lokalizacji"] ? String(row["Uwagi i opis lokalizacji"]) : "";
+                const lat = parseFloat(row["Szerokość geogr. (Lat)"]);
+                const lng = parseFloat(row["Długość geogr. (Lng)"]);
+
+                if (typ === "Policja") typ = "Kierowanie ruchem";
+                if (typ === "Koordynator") typ = "Lider";
+
+                if (typ && CONFIG_TYPES[typ] && !isNaN(lat) && !isNaN(lng)) {
+                    const id = generateUUID();
+                    createMarkerAndAdd(id, typ, numer, sektor, liczba_osob, telefon, uwagi, lat, lng);
+                    importedCount++;
+                }
+            });
+
+            initFilters();
+            refreshList();
+            updateStats();
+
+            if (points.length > 0) {
+                const group = new L.featureGroup(points.map(p => p.marker));
+                map.fitBounds(group.getBounds());
+                alert(`Pomyślnie zaimportowano ${importedCount} punktów z pliku Excel!`);
+            } else {
+                alert("Nie udało się zaimportować żadnego punktu. Sprawdź format kolumn.");
+            }
+
+        } catch (err) {
+            alert("Błąd podczas odczytu pliku Excel.");
+            console.error(err);
+        }
+    };
+    reader.readAsArrayBuffer(file);
+    event.target.value = "";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Podgląd Zabezpieczenia Trasy (Live)</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link class="styles" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+#panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 340px;
+    bottom: 0;
+    background: white;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+    padding: 15px;
+    box-sizing: border-box;
+    z-index: 9999;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+#map {
+    position: absolute;
+    left: 340px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.section-title {
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 3px;
+}
+
+.custom-marker-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px !important;
+    height: 24px !important;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    color: white;
+    font-size: 11px;
+    text-align: center;
+}
+
+.icon-wolontariusz { background: #007bff; }
+.icon-lider       { background: #17a2b8; border-radius: 4px; }
+.icon-ochrona      { background: #dc3545; border-color: #ffc107; }
+.icon-ruchem       { background: #004085; }
+.icon-medyczny     { background: #28a745; }
+.icon-ploty        { background: #343a40; border-color: #f8f9fa; }
+.icon-toaleta      { background: #6f42c1; }
+.icon-zywieniowy   { background: #fd7e14; }
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+.filter-item input { margin-right: 6px; }
+
+.stat-table {
+    width: 100%;
+    font-size: 12px;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+.stat-table th, .stat-table td {
+    border: 1px solid #eee;
+    padding: 4px;
+    text-align: left;
+}
+.stat-table th { background: #f8f9fa; }
+
+.search-box {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.pointItem {
+    border: 1px solid #ddd;
+    margin-bottom: 6px;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #fff;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+.pointItem:hover { background: #f1f3f5; }
+
+.coords {
+    font-family: monospace;
+    font-size: 10px;
+    color: #777;
+}
+
+.badge-sector {
+    background: #e9ecef;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.popup-view b { font-size: 14px; display: block; margin-bottom: 5px; }
+.popup-view div { font-size: 12px; margin-bottom: 3px; }
+
+#loading-status {
+    background: #fff3cd;
+    color: #856404;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ffeeba;
+}
+</style>
+</head>
+
+<body>
+
+<div id="panel">
+    <h2 id="projectTitle" style="margin-top:0; margin-bottom:10px; font-size:18px; color:#333;">Ładowanie projektu...</h2>
+    
+    <div id="loading-status">Trwa pobieranie tras i punktów z GitHub...</div>
+
+    <div class="section-title">Legenda tras</div>
+    <div style="font-size:12px; padding: 5px; background: #f8f9fa; border-radius: 4px; border: 1px solid #ddd;">
+        <div style="color: #007bff; font-weight:bold;"><i class="fa-solid fa-route"></i> Trasa SM (Maraton)</div>
+        <div style="color: #dc3545; font-weight:bold;"><i class="fa-solid fa-route"></i> Trasa HM (Półmaraton)</div>
+        <div style="color: #20c997; font-weight:bold;"><i class="fa-solid fa-route"></i> Trasa UM (Ultra)</div>
+    </div>
+
+    <div class="section-title">Filtrowanie punktów</div>
+    <div id="filterContainer" style="max-height: 120px; overflow-y: auto; background:#f8f9fa; padding:5px; border-radius:4px; border:1px solid #ddd;"></div>
+
+    <div class="section-title">Wyszukiwarka</div>
+    <input type="text" id="searchPointInput" class="search-box" placeholder="Szukaj numeru np. LID-002..." oninput="searchPoints()">
+
+    <div class="section-title">Statystyki Live</div>
+    <table class="stat-table">
+        <thead>
+            <tr><th>Typ</th><th>Ilość</th><th>Obsada (os.)</th></tr>
+        </thead>
+        <tbody id="statTableBody"></tbody>
+    </table>
+
+    <div class="section-title">Lista Punktów (<span id="pointsCount">0</span>)</div>
+    <div id="pointList" style="max-height:350px; overflow-y:auto; margin-top:5px;"></div>
+</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/togeojson/0.16.0/togeojson.min.js"></script>
+
+<script>
+const CONFIG_TYPES = {
+    "Wolontariusz":      { className: "icon-wolontariusz", faIcon: "fa-solid fa-user",          color: "#007bff" },
+    "Lider":             { className: "icon-lider",        faIcon: "fa-solid fa-bullhorn",      color: "#17a2b8" },
+    "Ochrona":          { className: "icon-ochrona",      faIcon: "fa-solid fa-shield-halved", color: "#dc3545" },
+    "Kierowanie ruchem": { className: "icon-ruchem",       faIcon: "fa-solid fa-car",           color: "#004085" },
+    "Medyczny":          { className: "icon-medyczny",     faIcon: "fa-solid fa-heart-pulse",   color: "#28a745" },
+    "Płoty":             { className: "icon-ploty",        faIcon: "fa-solid fa-road-barrier",  color: "#343a40" },
+    "Toaleta":           { className: "icon-toaleta",      faIcon: "fa-solid fa-restroom",      color: "#6f42c1" },
+    "Punkt żywieniowy":  { className: "icon-zywieniowy",   faIcon: "fa-solid fa-droplet",       color: "#fd7e14" }
+};
+
+const CONFIG_ROUTES = {
+    "SM": { file: "trasa_sm.gpx", color: "#007bff", layer: null },
+    "HM": { file: "trasa_hm.gpx", color: "#dc3545", layer: null },
+    "UM": { file: "trasa_um.gpx", color: "#20c997", layer: null }
+};
+
+const map = L.map('map').setView([50.2649, 19.0238], 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+
+Object.keys(CONFIG_ROUTES).forEach(key => {
+    CONFIG_ROUTES[key].layer = L.geoJSON(null, {
+        style: { color: CONFIG_ROUTES[key].color, weight: 5 }
+    }).addTo(map);
+});
+
+let points = [];
+let activeFilters = {};
+
+function initFilters() {
+    const container = document.getElementById("filterContainer");
+    container.innerHTML = "";
+    Object.keys(CONFIG_TYPES).forEach(type => {
+        activeFilters[type] = true;
+        const div = document.createElement("div");
+        div.className = "filter-item";
+        div.innerHTML = `
+            <input type="checkbox" id="filter_${type}" checked onchange="toggleFilter('${type}', this.checked)">
+            <span style="display:inline-block; width:14px; text-align:center; margin-right:5px; color:${CONFIG_TYPES[type].color};"><i class="${CONFIG_TYPES[type].faIcon}"></i></span>
+            <label for="filter_${type}" style="cursor:pointer; font-weight:bold;">${type}</label>
+        `;
+        container.appendChild(div);
+    });
+}
+initFilters();
+
+function toggleFilter(type, isVisible) {
+    activeFilters[type] = isVisible;
+    points.forEach(p => {
+        if (p.typ === type) {
+            if (isVisible) { if (!map.hasLayer(p.marker)) p.marker.addTo(map); }
+            else { if (map.hasLayer(p.marker)) map.removeLayer(p.marker); }
+        }
+    });
+    refreshList();
+    updateStats();
+}
+
+async function loadRepositoryData() {
+    for (const key of Object.keys(CONFIG_ROUTES)) {
+        try {
+            const response = await fetch(CONFIG_ROUTES[key].file);
+            if (!response.ok) throw new Error("Brak pliku");
+            const gpxText = await response.text();
+            
+            const parser = new DOMParser();
+            const gpxXml = parser.parseFromString(gpxText, "text/xml");
+            const geojson = toGeoJSON.gpx(gpxXml);
+            
+            CONFIG_ROUTES[key].layer.addData(geojson);
+        } catch (e) {
+            // Pomijamy jeśli trasa nie jest wrzucona
+        }
+    }
+
+    try {
+        const response = await fetch('punkty.json');
+        if (!response.ok) throw new Error("Nie znaleziono pliku punkty.json");
+        const data = await response.json();
+        
+        if (data.projectName) {
+            document.getElementById("projectTitle").innerText = data.projectName;
+        }
+
+        const pointsArray = data.points || (Array.isArray(data) ? data : []);
+        pointsArray.forEach((p, index) => {
+            let typ = p.typ;
+            if (typ === "Policja") typ = "Kierowanie ruchem";
+            if (typ === "Koordynator") typ = "Lider";
+
+            if (!CONFIG_TYPES[typ]) return;
+
+            createReadOnlyMarker(index, typ, p.numer||"", p.sektor||"", p.liczba_osob||0, p.telefon||"", p.uwagi||"", p.lat, p.lng);
+        });
+        
+        document.getElementById("loading-status").style.display = "none";
+    } catch (e) {
+        document.getElementById("loading-status").innerHTML = `<span style="color:red;"><i class="fa-solid fa-triangle-exclamation"></i> Błąd: Brak pliku 'punkty.json' na GitHubie. Wyeksportuj go z edytora i wrzuć do repozytorium.</span>`;
+        document.getElementById("projectTitle").innerText = "Brak pliku danych";
+    }
+
+    fitMapToAll();
+}
+
+function createReadOnlyMarker(id, typ, numer, sektor, liczba_osob, telefon, uwagi, lat, lng) {
+    const cfg = CONFIG_TYPES[typ];
+    
+    const customIcon = L.divIcon({
+        className: `custom-marker-icon ${cfg.className}`,
+        html: `<div><i class="${cfg.faIcon}"></i></div>`,
+        iconSize: [24, 24],
+        iconAnchor: [12, 12]
+    });
+
+    const marker = L.marker([lat, lng], { icon: customIcon, draggable: false });
+    marker.addTo(map);
+
+    marker.bindPopup(`
+        <div class="popup-view" style="width:220px">
+            <b style="color:${cfg.color};"><i class="${cfg.faIcon}"></i> ${typ}</b>
+            <div><b>ID:</b> ${numer}</div>
+            ${sektor ? `<div><b>Sektor:</b> ${sektor}</div>` : ''}
+            <div><b>Obsada:</b> ${liczba_osob} os.</div>
+            ${telefon ? `<div><b>Tel:</b> <a href="tel:${telefon}">${telefon}</a></div>` : ''}
+            ${uwagi ? `<div style="margin-top:5px; border-top:1px solid #eee; padding-top:3px; font-style:italic; color:#555;">${uwagi}</div>` : ''}
+        </div>
+    `);
+
+    points.push({ id, typ, numer, sektor, liczba_osob, telefon, uwagi, lat, lng, marker });
+}
+
+function fitMapToAll() {
+    const bounds = L.latLngBounds([]);
+    let hasData = false;
+
+    Object.keys(CONFIG_ROUTES).forEach(key => {
+        const layer = CONFIG_ROUTES[key].layer;
+        if (layer.getLayers().length > 0) {
+            bounds.extend(layer.getBounds());
+            hasData = true;
+        }
+    });
+
+    if (points.length > 0) {
+        points.forEach(p => bounds.extend([p.lat, p.lng]));
+        hasData = true;
+    }
+
+    if (hasData) map.fitBounds(bounds);
+}
+
+function refreshList() {
+    let html = "";
+    const searchVal = document.getElementById("searchPointInput").value.toLowerCase().trim();
+
+    points.forEach(p => {
+        if (!activeFilters[p.typ]) return;
+        if (searchVal && !p.numer.toLowerCase().includes(searchVal)) return;
+
+        html += `
+        <div class="pointItem" onclick="focusPoint('${p.id}')" style="border-left: 5px solid ${CONFIG_TYPES[p.typ].color};">
+            <b><i class="${CONFIG_TYPES[p.typ].faIcon}"></i> ${p.typ}</b> - <span style="font-weight:bold;">${p.numer}</span>
+            ${p.sektor ? `<span class="badge-sector">Sek: ${p.sektor}</span>` : ''}
+            <br>
+            <small style="display:block; margin:2px 0; color:#555;">
+                ${p.liczba_osob ? `Obsada: <b>${p.liczba_osob} os.</b>` : ''} 
+                ${p.telefon ? ` | Tel: ${p.telefon}` : ''}
+            </small>
+            <small style="color:#666; font-style:italic;">${p.uwagi ? p.uwagi : 'Brak uwag.'}</small>
+        </div>
+        `;
+    });
+
+    document.getElementById("pointList").innerHTML = html;
+    document.getElementById("pointsCount").innerText = points.filter(p => activeFilters[p.typ]).length;
+}
+
+function focusPoint(id) {
+    const point = points.find(p => p.id == id);
+    if (!point) return;
+    map.setView([point.lat, point.lng], 17);
+    point.marker.openPopup();
+}
+
+function searchPoints() { refreshList(); }
+
+function updateStats() {
+    let html = "";
+    let grandTotalPoints = 0;
+    let grandTotalPeople = 0;
+
+    Object.keys(CONFIG_TYPES).forEach(type => {
+        const matching = points.filter(p => p.typ === type);
+        const countPoints = matching.length;
+        const countPeople = matching.reduce((sum, p) => sum + (p.liczba_osob || 0), 0);
+
+        grandTotalPoints += countPoints;
+        grandTotalPeople += countPeople;
+
+        if(countPoints > 0) {
+            html += `<tr><td><span style="color:${CONFIG_TYPES[type].color}; margin-right:5px;"><i class="${CONFIG_TYPES[type].faIcon}"></i></span>${type}</td><td><b>${countPoints}</b></td><td>${countPeople}</td></tr>`;
+        }
+    });
+
+    if(grandTotalPoints > 0) {
+        html += `<tr style="background:#e9ecef; font-weight:bold; border-top:2px solid #ccc;"><td>RAZEM</td><td>${grandTotalPoints}</td><td>${grandTotalPeople}</td></tr>`;
+    } else {
+        html = `<tr><td colspan="3" style="text-align:center; color:#999;">Brak punktów</td></tr>`;
+    }
+    document.getElementById("statTableBody").innerHTML = html;
+}
+
+window.onload = function() {
+    loadRepositoryData().then(() => {
+        refreshList();
+        updateStats();
+    });
+};
+</script>
+
+</body>
+</html>
