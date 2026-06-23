@@ -2,6 +2,7 @@
 <html lang="pl">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Podgląd Zabezpieczenia Trasy (Live)</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -14,6 +15,7 @@ body {
     background: #f4f6f9;
 }
 
+/* Układ domyślny: DESKTOP (Komputer) */
 #panel {
     position: absolute;
     left: 0;
@@ -27,6 +29,7 @@ body {
     box-sizing: border-box;
     z-index: 9999;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
 #map {
@@ -35,6 +38,25 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: 1;
+}
+
+/* Ukryty na komputerze przycisk przełączania widoku dla telefonów */
+#toggle-view-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .section-title {
@@ -139,10 +161,66 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ffeeba;
 }
+
+/* =========================================================================
+   RESPONSYWNOŚĆ: Reguły przeznaczone dla ekranów smartfonów (poniżej 768px szerokości)
+   ========================================================================= */
+@media (max-width: 767px) {
+    #panel {
+        width: 100%;
+        top: auto;
+        bottom: 0;
+        height: 40vh; /* Panel zajmuje 40% wysokości ekranu na dole */
+        border-right: none;
+        border-top: 2px solid #ccc;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+        z-index: 999;
+    }
+
+    #map {
+        left: 0;
+        width: 100%;
+        height: 60vh; /* Mapa zajmuje 60% wysokości ekranu na górze */
+    }
+
+    #toggle-view-btn {
+        display: block; /* Pokazuje przycisk przełączania widoku na telefonie */
+    }
+
+    /* Stan po pełnym powiększeniu panelu (przełączenie widoku) */
+    .panel-expanded #panel {
+        height: 90vh; /* Rozwiń panel na prawie cały ekran */
+    }
+    .panel-expanded #map {
+        height: 10vh; /* Zmniejsz mapę do paska na samej górze */
+    }
+
+    /* Dopasowanie ułatwiające klikanie na telefonie */
+    .pointItem {
+        padding: 12px;
+        margin-bottom: 8px;
+    }
+    
+    .filter-item {
+        font-size: 14px;
+        padding: 6px 0;
+    }
+    .filter-item input {
+        width: 18px;
+        height: 18px;
+    }
+    
+    /* Dynamiczne zmniejszenie maksymalnych wysokości list, aby pasowały do ekranu telefonu */
+    #pointList {
+        max-height: 250px !important;
+    }
+}
 </style>
 </head>
 
 <body>
+
+<button id="toggle-view-btn" onclick="toggleMobileView()"><i class="fa-solid fa-list"></i> Pokaż Listę</button>
 
 <div id="panel">
     <h2 id="projectTitle" style="margin-top:0; margin-bottom:10px; font-size:18px; color:#333;">Ładowanie projektu...</h2>
@@ -197,7 +275,10 @@ const CONFIG_ROUTES = {
     "UM": { file: "trasa_um.gpx", color: "#20c997", layer: null }
 };
 
-const map = L.map('map').setView([50.2649, 19.0238], 13);
+const map = L.map('map', {
+    tap: false // Poprawka Leaflet usuwająca błędy podwójnego kliknięcia na Safari/iOS
+}).setView([50.2649, 19.0238], 13);
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
 Object.keys(CONFIG_ROUTES).forEach(key => {
@@ -208,6 +289,22 @@ Object.keys(CONFIG_ROUTES).forEach(key => {
 
 let points = [];
 let activeFilters = {};
+
+// Logika przycisku na telefon: Przełączanie między widokiem mapy a pełnej listy/statystyk
+function toggleMobileView() {
+    const body = document.body;
+    const btn = document.getElementById("toggle-view-btn");
+    
+    if (body.classList.contains("panel-expanded")) {
+        body.classList.remove("panel-expanded");
+        btn.innerHTML = `<i class="fa-solid fa-list"></i> Pokaż Listę`;
+    } else {
+        body.classList.add("panel-expanded");
+        btn.innerHTML = `<i class="fa-solid fa-map"></i> Pokaż Mapę`;
+    }
+    // Wymuszenie na bibliotece Leaflet przeliczenia rozmiaru okna po zmianie wysokości
+    setTimeout(() => { map.invalidateSize(); }, 320);
+}
 
 function initFilters() {
     const container = document.getElementById("filterContainer");
@@ -360,6 +457,14 @@ function refreshList() {
 function focusPoint(id) {
     const point = points.find(p => p.id == id);
     if (!point) return;
+
+    // Na telefonie, jeśli użytkownik kliknie element z rozwiniętej listy, automatycznie chowany panel, by pokazać mu punkt na mapie
+    if (document.body.classList.contains("panel-expanded")) {
+        document.body.classList.remove("panel-expanded");
+        document.getElementById("toggle-view-btn").innerHTML = `<i class="fa-solid fa-list"></i> Pokaż Listę`;
+        setTimeout(() => { map.invalidateSize(); }, 300);
+    }
+
     map.setView([point.lat, point.lng], 17);
     point.marker.openPopup();
 }
