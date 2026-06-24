@@ -15,7 +15,6 @@ body {
     background: #f4f6f9;
 }
 
-/* Układ domyślny: DESKTOP (Komputer) */
 #panel {
     position: absolute;
     left: 0;
@@ -41,7 +40,6 @@ body {
     z-index: 1;
 }
 
-/* Ukryty na komputerze przycisk przełączania widoku dla telefonów */
 #toggle-view-btn {
     display: none;
     position: fixed;
@@ -135,12 +133,6 @@ body {
 }
 .pointItem:hover { background: #f1f3f5; }
 
-.coords {
-    font-family: monospace;
-    font-size: 10px;
-    color: #777;
-}
-
 .badge-sector {
     background: #e9ecef;
     padding: 1px 4px;
@@ -162,45 +154,46 @@ body {
     border: 1px solid #ffeeba;
 }
 
-/* =========================================================================
-   RESPONSYWNOŚĆ: Reguły przeznaczone dla ekranów smartfonów (poniżej 768px szerokości)
-   ========================================================================= */
+/* Dyskretny status aktualizacji Live */
+#live-sync-badge {
+    float: right;
+    font-size: 11px;
+    background: #e6f4ea;
+    color: #137333;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
 @media (max-width: 767px) {
     #panel {
         width: 100%;
         top: auto;
         bottom: 0;
-        height: 40vh; /* Panel zajmuje 40% wysokości ekranu na dole */
+        height: 40vh;
         border-right: none;
         border-top: 2px solid #ccc;
         box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
         z-index: 999;
     }
-
     #map {
         left: 0;
         width: 100%;
-        height: 60vh; /* Mapa zajmuje 60% wysokości ekranu na górze */
+        height: 60vh;
     }
-
     #toggle-view-btn {
-        display: block; /* Pokazuje przycisk przełączania widoku na telefonie */
+        display: block;
     }
-
-    /* Stan po pełnym powiększeniu panelu (przełączenie widoku) */
     .panel-expanded #panel {
-        height: 90vh; /* Rozwiń panel na prawie cały ekran */
+        height: 90vh;
     }
     .panel-expanded #map {
-        height: 10vh; /* Zmniejsz mapę do paska na samej górze */
+        height: 10vh;
     }
-
-    /* Dopasowanie ułatwiające klikanie na telefonie */
     .pointItem {
         padding: 12px;
         margin-bottom: 8px;
     }
-    
     .filter-item {
         font-size: 14px;
         padding: 6px 0;
@@ -209,8 +202,6 @@ body {
         width: 18px;
         height: 18px;
     }
-    
-    /* Dynamiczne zmniejszenie maksymalnych wysokości list, aby pasowały do ekranu telefonu */
     #pointList {
         max-height: 250px !important;
     }
@@ -223,9 +214,10 @@ body {
 <button id="toggle-view-btn" onclick="toggleMobileView()"><i class="fa-solid fa-list"></i> Pokaż Listę</button>
 
 <div id="panel">
-    <h2 id="projectTitle" style="margin-top:0; margin-bottom:10px; font-size:18px; color:#333;">Ładowanie projektu...</h2>
+    <span id="live-sync-badge"><i class="fa-solid fa-rotate"></i> Live: 30s</span>
+    <h2 id="projectTitle" style="margin-top:0; margin-bottom:10px; font-size:18px; color:#333;">Ładowanie...</h2>
     
-    <div id="loading-status">Trwa pobieranie tras i punktów z GitHub...</div>
+    <div id="loading-status">Trwa pobieranie danych z GitHub...</div>
 
     <div class="section-title">Legenda tras</div>
     <div style="font-size:12px; padding: 5px; background: #f8f9fa; border-radius: 4px; border: 1px solid #ddd;">
@@ -275,10 +267,7 @@ const CONFIG_ROUTES = {
     "UM": { file: "trasa_um.gpx", color: "#20c997", layer: null }
 };
 
-const map = L.map('map', {
-    tap: false // Poprawka Leaflet usuwająca błędy podwójnego kliknięcia na Safari/iOS
-}).setView([50.2649, 19.0238], 13);
-
+const map = L.map('map', { tap: false }).setView([50.2649, 19.0238], 13);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
 Object.keys(CONFIG_ROUTES).forEach(key => {
@@ -289,12 +278,11 @@ Object.keys(CONFIG_ROUTES).forEach(key => {
 
 let points = [];
 let activeFilters = {};
+let isFirstLoad = true; // Flaga sprawdzająca, czy to pierwsze uruchomienie (do dopasowania widoku)
 
-// Logika przycisku na telefon: Przełączanie między widokiem mapy a pełnej listy/statystyk
 function toggleMobileView() {
     const body = document.body;
     const btn = document.getElementById("toggle-view-btn");
-    
     if (body.classList.contains("panel-expanded")) {
         body.classList.remove("panel-expanded");
         btn.innerHTML = `<i class="fa-solid fa-list"></i> Pokaż Listę`;
@@ -302,7 +290,6 @@ function toggleMobileView() {
         body.classList.add("panel-expanded");
         btn.innerHTML = `<i class="fa-solid fa-map"></i> Pokaż Mapę`;
     }
-    // Wymuszenie na bibliotece Leaflet przeliczenia rozmiaru okna po zmianie wysokości
     setTimeout(() => { map.invalidateSize(); }, 320);
 }
 
@@ -335,55 +322,80 @@ function toggleFilter(type, isVisible) {
     updateStats();
 }
 
-async function loadRepositoryData() {
+// Funkcja pobierająca wyłącznie trasy GPX (ładowane tylko RAZ, bo rzadko się zmieniają)
+async function loadGpxRoutes() {
     for (const key of Object.keys(CONFIG_ROUTES)) {
         try {
-            const response = await fetch(CONFIG_ROUTES[key].file);
-            if (!response.ok) throw new Error("Brak pliku");
+            // Ominięcie pamięci podręcznej przy pierwszym ładowaniu
+            const response = await fetch(`${CONFIG_ROUTES[key].file}?v=${Date.now()}`);
+            if (!response.ok) throw new Error();
             const gpxText = await response.text();
-            
             const parser = new DOMParser();
             const gpxXml = parser.parseFromString(gpxText, "text/xml");
             const geojson = toGeoJSON.gpx(gpxXml);
-            
             CONFIG_ROUTES[key].layer.addData(geojson);
-        } catch (e) {
-            // Pomijamy jeśli trasa nie jest wrzucona
-        }
+        } catch (e) { }
     }
+}
 
+// Główna funkcja synchronizacji punktów – uruchamiana cyklicznie co 30 sekund
+async function syncPointsData() {
+    const badge = document.getElementById("live-sync-badge");
+    badge.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Pobieranie...`;
+    
     try {
-        const response = await fetch('punkty.json');
-        if (!response.ok) throw new Error("Nie znaleziono pliku punkty.json");
+        // Kluczowe zabezpieczenie przed cache: ?cb=bieżący_czas
+        const response = await fetch(`punkty.json?cb=${Date.now()}`);
+        if (!response.ok) throw new Error("Nie znaleziono pliku");
         const data = await response.json();
         
         if (data.projectName) {
             document.getElementById("projectTitle").innerText = data.projectName;
         }
 
+        // WYCZYSZCZENIE STARYCH MARKERÓW Z MAPY (przed wgraniem nowych)
+        points.forEach(p => map.removeLayer(p.marker));
+        points = []; // Reset tablicy lokalnej
+
         const pointsArray = data.points || (Array.isArray(data) ? data : []);
         pointsArray.forEach((p, index) => {
             let typ = p.typ;
             if (typ === "Policja") typ = "Kierowanie ruchem";
             if (typ === "Koordynator") typ = "Lider";
-
             if (!CONFIG_TYPES[typ]) return;
 
             createReadOnlyMarker(index, typ, p.numer||"", p.sektor||"", p.liczba_osob||0, p.telefon||"", p.uwagi||"", p.lat, p.lng);
         });
         
         document.getElementById("loading-status").style.display = "none";
-    } catch (e) {
-        document.getElementById("loading-status").innerHTML = `<span style="color:red;"><i class="fa-solid fa-triangle-exclamation"></i> Błąd: Brak pliku 'punkty.json' na GitHubie. Wyeksportuj go z edytora i wrzuć do repozytorium.</span>`;
-        document.getElementById("projectTitle").innerText = "Brak pliku danych";
-    }
+        badge.style.background = "#e6f4ea";
+        badge.style.color = "#137333";
+        badge.innerHTML = `<i class="fa-solid fa-circle-check"></i> Live: OK`;
+        
+        // Renderowanie interfejsu
+        refreshList();
+        updateStats();
 
-    fitMapToAll();
+        // Dopasowanie widoku mapy do tras i punktów wykonujemy TYLKO przy pierwszym wejściu, 
+        // żeby nie denerwować użytkownika nagłym przesuwaniem mapy co 30 sekund.
+        if (isFirstLoad) {
+            fitMapToAll();
+            isFirstLoad = false;
+        }
+
+    } catch (e) {
+        badge.style.background = "#fce8e6";
+        badge.style.color = "#c5221f";
+        badge.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Błąd Live`;
+        if(isFirstLoad) {
+            document.getElementById("loading-status").innerHTML = `<span style="color:red;"><i class="fa-solid fa-triangle-exclamation"></i> Brak pliku 'punkty.json' na GitHubie.</span>`;
+            document.getElementById("projectTitle").innerText = "Brak pliku danych";
+        }
+    }
 }
 
 function createReadOnlyMarker(id, typ, numer, sektor, liczba_osob, telefon, uwagi, lat, lng) {
     const cfg = CONFIG_TYPES[typ];
-    
     const customIcon = L.divIcon({
         className: `custom-marker-icon ${cfg.className}`,
         html: `<div><i class="${cfg.faIcon}"></i></div>`,
@@ -391,8 +403,12 @@ function createReadOnlyMarker(id, typ, numer, sektor, liczba_osob, telefon, uwag
         iconAnchor: [12, 12]
     });
 
-    const marker = L.marker([lat, lng], { icon: customIcon, draggable: false });
-    marker.addTo(map);
+    const marker = L.marker([lat, lng], { icon: customIcon });
+    
+    // Jeśli użytkownik wyłączył dany typ w filtrach, nie dodawaj go od razu na mapę
+    if (activeFilters[typ]) {
+        marker.addTo(map);
+    }
 
     marker.bindPopup(`
         <div class="popup-view" style="width:220px">
@@ -411,7 +427,6 @@ function createReadOnlyMarker(id, typ, numer, sektor, liczba_osob, telefon, uwag
 function fitMapToAll() {
     const bounds = L.latLngBounds([]);
     let hasData = false;
-
     Object.keys(CONFIG_ROUTES).forEach(key => {
         const layer = CONFIG_ROUTES[key].layer;
         if (layer.getLayers().length > 0) {
@@ -419,12 +434,10 @@ function fitMapToAll() {
             hasData = true;
         }
     });
-
     if (points.length > 0) {
         points.forEach(p => bounds.extend([p.lat, p.lng]));
         hasData = true;
     }
-
     if (hasData) map.fitBounds(bounds);
 }
 
@@ -457,14 +470,11 @@ function refreshList() {
 function focusPoint(id) {
     const point = points.find(p => p.id == id);
     if (!point) return;
-
-    // Na telefonie, jeśli użytkownik kliknie element z rozwiniętej listy, automatycznie chowany panel, by pokazać mu punkt na mapie
     if (document.body.classList.contains("panel-expanded")) {
         document.body.classList.remove("panel-expanded");
         document.getElementById("toggle-view-btn").innerHTML = `<i class="fa-solid fa-list"></i> Pokaż Listę`;
         setTimeout(() => { map.invalidateSize(); }, 300);
     }
-
     map.setView([point.lat, point.lng], 17);
     point.marker.openPopup();
 }
@@ -480,10 +490,8 @@ function updateStats() {
         const matching = points.filter(p => p.typ === type);
         const countPoints = matching.length;
         const countPeople = matching.reduce((sum, p) => sum + (p.liczba_osob || 0), 0);
-
         grandTotalPoints += countPoints;
         grandTotalPeople += countPeople;
-
         if(countPoints > 0) {
             html += `<tr><td><span style="color:${CONFIG_TYPES[type].color}; margin-right:5px;"><i class="${CONFIG_TYPES[type].faIcon}"></i></span>${type}</td><td><b>${countPoints}</b></td><td>${countPeople}</td></tr>`;
         }
@@ -497,11 +505,17 @@ function updateStats() {
     document.getElementById("statTableBody").innerHTML = html;
 }
 
-window.onload = function() {
-    loadRepositoryData().then(() => {
-        refreshList();
-        updateStats();
-    });
+// URUCHOMIENIE STARTOWE
+window.onload = async function() {
+    // 1. Najpierw jednorazowo pobierz trasy
+    await loadGpxRoutes();
+    // 2. Pobierz pierwsze punkty
+    await syncPointsData();
+    
+    // 3. NAJWAŻNIEJSZE: Uruchom zegar sprawdzający zmiany w tle CO 30 SEKUND (30000 milisekund)
+    setInterval(async () => {
+        await syncPointsData();
+    }, 30000);
 };
 </script>
 
