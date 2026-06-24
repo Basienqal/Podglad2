@@ -1,6 +1,6 @@
 {
   "projectName": "Silesia Marathon 2026",
-  "generatedAt": "2026-06-22T12:13:27.893Z",
+  "generatedAt": "2026-06-24T11:36:00.085Z",
   "points": [
     {
       "typ": "Wolontariusz",
@@ -99,8 +99,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 7A",
-      "lat": 50.27493539046998,
-      "lng": 18.996721048051693
+      "lat": 50.27495578218506,
+      "lng": 18.996742658280223
     },
     {
       "typ": "Punkt żywieniowy",
@@ -1511,6 +1511,1176 @@
       "uwagi": "Mapa 45",
       "lat": 50.24242780309956,
       "lng": 19.042812287807465
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-086",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P1\nPółmaraton",
+      "lat": 50.257501497273076,
+      "lng": 19.036275682666865
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-087",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P1\nPółmaraton",
+      "lat": 50.25769881515666,
+      "lng": 19.036530403610005
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-088",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P2\nPółmaraton",
+      "lat": 50.25776225709104,
+      "lng": 19.037272910350413
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-089",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P2\nPółmaraton",
+      "lat": 50.257870316513866,
+      "lng": 19.03805316081837
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-090",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P2\nPółmaraton",
+      "lat": 50.258046982127944,
+      "lng": 19.03944206027685
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-091",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P3\nPółmaraton",
+      "lat": 50.258165271466375,
+      "lng": 19.040236317040772
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-092",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P3\nPółmaraton",
+      "lat": 50.258281877781876,
+      "lng": 19.04139773226281
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-093",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P4\nPółmaraton",
+      "lat": 50.25863354591765,
+      "lng": 19.04414345323931
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-094",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P4\nPółmaraton",
+      "lat": 50.258753450404974,
+      "lng": 19.04537562044282
+    },
+    {
+      "typ": "Kierowanie ruchem",
+      "numer": "RUCH-037",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P4\nPółmaraton",
+      "lat": 50.258648720503416,
+      "lng": 19.044249485746768
+    },
+    {
+      "typ": "Kierowanie ruchem",
+      "numer": "RUCH-038",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P4\nPółmaraton",
+      "lat": 50.25852690068352,
+      "lng": 19.04428970484306
+    },
+    {
+      "typ": "Kierowanie ruchem",
+      "numer": "RUCH-039",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P5\nPółmaraton",
+      "lat": 50.259050208972255,
+      "lng": 19.04754477036926
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-095",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P5\nPółmaraton",
+      "lat": 50.25901400991045,
+      "lng": 19.047572443218954
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-096",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P5\nPółmaraton",
+      "lat": 50.25911009219214,
+      "lng": 19.05027784776254
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-097",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P5\nPółmaraton",
+      "lat": 50.25927820169343,
+      "lng": 19.051504393167544
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-098",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P6\nPółmaraton",
+      "lat": 50.259319284338495,
+      "lng": 19.05253668330559
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-099",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P6\nPółmaraton",
+      "lat": 50.25934842867592,
+      "lng": 19.053271983883217
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-100",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P6\nPółmaraton",
+      "lat": 50.2593775798006,
+      "lng": 19.05374120667324
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-015",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P6\nPółmaraton",
+      "lat": 50.259156248353484,
+      "lng": 19.0535588801034
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-101",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U1\nUltramarathon",
+      "lat": 50.28060889003809,
+      "lng": 18.99042600551002
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-102",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U1\nUltramarathon",
+      "lat": 50.28028304294095,
+      "lng": 18.990967622673338
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-103",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U2\nUltramarathon",
+      "lat": 50.28282459114463,
+      "lng": 18.98706905160652
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-104",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U3\nUltramarathon",
+      "lat": 50.284146865731216,
+      "lng": 18.985710897325482
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-105",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U3\nUltramarathon",
+      "lat": 50.28511028569938,
+      "lng": 18.984890163829238
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-106",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U5\nUltramarathon",
+      "lat": 50.286669421915704,
+      "lng": 18.98255135244256
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-107",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U5\nUltramarathon",
+      "lat": 50.28650737526373,
+      "lng": 18.982405959085764
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-108",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U6\nUltramarathon",
+      "lat": 50.29094295704843,
+      "lng": 18.98085530721258
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-109",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U7\nUltramarathon",
+      "lat": 50.290777958162884,
+      "lng": 18.97746617803208
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-110",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U8\nUltramarathon",
+      "lat": 50.28734922373572,
+      "lng": 18.97863974079493
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-001",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 6",
+      "lat": 50.27812724706577,
+      "lng": 18.993257505698896
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-002",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 6",
+      "lat": 50.27828439959737,
+      "lng": 18.993349010597914
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-003",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 6",
+      "lat": 50.278258584248896,
+      "lng": 18.993504524436915
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-004",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 6",
+      "lat": 50.27830489094165,
+      "lng": 18.99360373154109
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-005",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 6",
+      "lat": 50.278400922647755,
+      "lng": 18.993531337167752
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-006",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 6",
+      "lat": 50.278483190961126,
+      "lng": 18.993788739384012
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-007",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 7",
+      "lat": 50.27541305635259,
+      "lng": 18.997482461285237
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-008",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 7A",
+      "lat": 50.274917370785815,
+      "lng": 18.99672366100195
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-009",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 9",
+      "lat": 50.277043949185234,
+      "lng": 18.99996819236533
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-010",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 9",
+      "lat": 50.27689579279691,
+      "lng": 19.000081491870947
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-011",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 9A",
+      "lat": 50.275834617982966,
+      "lng": 19.000778904587925
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-012",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 12",
+      "lat": 50.277903466625546,
+      "lng": 19.005428738456388
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-013",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 13",
+      "lat": 50.278153839900526,
+      "lng": 19.009021644391396
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-014",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 13",
+      "lat": 50.27803021301602,
+      "lng": 19.008566814436012
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-015",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 14",
+      "lat": 50.276836508108,
+      "lng": 19.008695515544144
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-016",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 14",
+      "lat": 50.276321970899055,
+      "lng": 19.00823969911954
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-017",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 14",
+      "lat": 50.27613330586242,
+      "lng": 19.008647252628602
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-018",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 15",
+      "lat": 50.274864085273904,
+      "lng": 19.008143173288452
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-019",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 15",
+      "lat": 50.274836642292854,
+      "lng": 19.00918350724575
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-020",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 16",
+      "lat": 50.27348848637437,
+      "lng": 19.00807346018824
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-021",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 17",
+      "lat": 50.272826400915946,
+      "lng": 19.00862043989773
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-022",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 17",
+      "lat": 50.272661325821,
+      "lng": 19.00866964810164
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-023",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 17",
+      "lat": 50.272335424322605,
+      "lng": 19.009002125964276
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-024",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 17",
+      "lat": 50.27217075745409,
+      "lng": 19.00795642946081
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-025",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 18",
+      "lat": 50.27010940936209,
+      "lng": 19.010326903235363
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-026",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 19",
+      "lat": 50.26941640004954,
+      "lng": 19.00867523901449
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-027",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 19",
+      "lat": 50.269253190731604,
+      "lng": 19.00898631161705
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-028",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 20",
+      "lat": 50.268422935727685,
+      "lng": 19.00798887802912
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-029",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 20",
+      "lat": 50.26834125653846,
+      "lng": 19.008273291393184
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-030",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 20",
+      "lat": 50.26834297195923,
+      "lng": 19.00805342700013
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-031",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 21",
+      "lat": 50.267497474892515,
+      "lng": 19.012177199736062
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-032",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 21",
+      "lat": 50.26667919764432,
+      "lng": 19.01215038700522
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-033",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 21",
+      "lat": 50.26680957399654,
+      "lng": 19.01228445065948
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-034",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 22",
+      "lat": 50.266372412357725,
+      "lng": 19.015674015047008
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-035",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 23",
+      "lat": 50.26504460325863,
+      "lng": 19.019336634082272
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-036",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 24A",
+      "lat": 50.267234240424244,
+      "lng": 19.024001941011164
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-037",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 24",
+      "lat": 50.26490733656825,
+      "lng": 19.023340769855658
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-038",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 24",
+      "lat": 50.26402553853713,
+      "lng": 19.024161239419907
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-039",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 25",
+      "lat": 50.2639431908058,
+      "lng": 19.02693367579067
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-040",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 25",
+      "lat": 50.26385362396129,
+      "lng": 19.026961823156388
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-041",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 25",
+      "lat": 50.26367520305278,
+      "lng": 19.0268813849638
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-042",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 26",
+      "lat": 50.26253418291329,
+      "lng": 19.035403288996243
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-043",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 26",
+      "lat": 50.26236605087943,
+      "lng": 19.037379387260504
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-044",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 26",
+      "lat": 50.26196287470678,
+      "lng": 19.034971604029433
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-045",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 26",
+      "lat": 50.26248442961816,
+      "lng": 19.035655328666298
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-046",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Maoa 26",
+      "lat": 50.262040277226866,
+      "lng": 19.034162232993197
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-047",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 26A",
+      "lat": 50.26535040583721,
+      "lng": 19.035840802601907
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-048",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 27",
+      "lat": 50.259621415040435,
+      "lng": 19.035393301415997
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-049",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 28",
+      "lat": 50.25768417583842,
+      "lng": 19.036106191545727
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-050",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "",
+      "lat": 50.25763221568179,
+      "lng": 19.03598865635255
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-051",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 28",
+      "lat": 50.257496763992236,
+      "lng": 19.03588684846519
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-052",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 30",
+      "lat": 50.2578020423101,
+      "lng": 19.03170794716547
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-053",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 30",
+      "lat": 50.25773306900704,
+      "lng": 19.031409989854406
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-054",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 30",
+      "lat": 50.25777767986144,
+      "lng": 19.031525284597077
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-055",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 32",
+      "lat": 50.25558183039498,
+      "lng": 19.030793274582354
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-056",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 34",
+      "lat": 50.25517424343373,
+      "lng": 19.03563873656205
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-057",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 35",
+      "lat": 50.25418759356129,
+      "lng": 19.034523326958325
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-058",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 36",
+      "lat": 50.253029326335316,
+      "lng": 19.033619737928404
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-059",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 36",
+      "lat": 50.252794237549864,
+      "lng": 19.03453137077758
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-060",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 36",
+      "lat": 50.25279252156906,
+      "lng": 19.03410504835693
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-061",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "mapa 38",
+      "lat": 50.24982296568878,
+      "lng": 19.032960228046978
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-062",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 38",
+      "lat": 50.2495249770906,
+      "lng": 19.032064494714554
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-063",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 39",
+      "lat": 50.24882137150891,
+      "lng": 19.033860947682058
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-064",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 39",
+      "lat": 50.24874414587337,
+      "lng": 19.03375101548555
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-065",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 41",
+      "lat": 50.24625088607929,
+      "lng": 19.038416801282832
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-066",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 41",
+      "lat": 50.24607411546121,
+      "lng": 19.038360494547998
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-067",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 41A",
+      "lat": 50.245495744876344,
+      "lng": 19.03819693688978
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-068",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 41A",
+      "lat": 50.24498945032427,
+      "lng": 19.038030697958437
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-069",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 42",
+      "lat": 50.24600922481817,
+      "lng": 19.040167074712862
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-070",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 43",
+      "lat": 50.24367617803733,
+      "lng": 19.03978365640528
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-071",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 44",
+      "lat": 50.24268070834952,
+      "lng": 19.03968981184727
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-072",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 44",
+      "lat": 50.24260004006759,
+      "lng": 19.039660317843357
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-073",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 44",
+      "lat": 50.24244900121525,
+      "lng": 19.03962546129323
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-074",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 44A",
+      "lat": 50.241919407537104,
+      "lng": 19.036104559449107
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-075",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P1",
+      "lat": 50.257646282397616,
+      "lng": 19.036391049476094
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-076",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P2",
+      "lat": 50.25778802424947,
+      "lng": 19.037270153267055
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-077",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P2",
+      "lat": 50.257896038893485,
+      "lng": 19.038061128827383
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-078",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P2",
+      "lat": 50.25808471494532,
+      "lng": 19.039428610858675
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-079",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P3",
+      "lat": 50.25831623912426,
+      "lng": 19.041384048862355
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-080",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P3",
+      "lat": 50.258196002996634,
+      "lng": 19.040258283858297
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-081",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P4",
+      "lat": 50.25876392485118,
+      "lng": 19.045457272371756
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-082",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P4A",
+      "lat": 50.2590810867275,
+      "lng": 19.047579816913004
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-083",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P5",
+      "lat": 50.259146176466444,
+      "lng": 19.050278584338702
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-084",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P5",
+      "lat": 50.25930220173359,
+      "lng": 19.051504472721504
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-085",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P6",
+      "lat": 50.25935550552784,
+      "lng": 19.052529567927944
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-086",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P6",
+      "lat": 50.25929865163795,
+      "lng": 19.053116860326657
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-087",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P6",
+      "lat": 50.259302083130834,
+      "lng": 19.053489557285594
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-088",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa P6",
+      "lat": 50.25932610357419,
+      "lng": 19.053864935517613
     }
   ]
 }
