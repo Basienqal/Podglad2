@@ -1,6 +1,11 @@
 {
   "projectName": "Silesia Marathon 2026",
-  "generatedAt": "2026-07-10T18:02:58.751Z",
+  "generatedAt": "2026-08-19T11:37:54.452Z",
+  "drawnRoutes": {
+    "SM": [],
+    "HM": [],
+    "UM": []
+  },
   "points": [
     {
       "typ": "Wolontariusz",
@@ -19,8 +24,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 2",
-      "lat": 50.2855724075488,
-      "lng": 18.980276584625248
+      "lat": 50.28556554834823,
+      "lng": 18.98020955279812
     },
     {
       "typ": "Wolontariusz",
@@ -29,8 +34,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 3",
-      "lat": 50.284485827939555,
-      "lng": 18.982009291648865
+      "lat": 50.28445324598423,
+      "lng": 18.98194494109482
     },
     {
       "typ": "Wolontariusz",
@@ -98,7 +103,7 @@
       "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 24",
+      "uwagi": "",
       "lat": 50.26446349751752,
       "lng": 19.024543642408105
     },
@@ -108,97 +113,107 @@
       "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 24",
+      "uwagi": "",
       "lat": 50.26463490550555,
       "lng": 19.024447116577015
     },
     {
       "typ": "Toaleta",
       "numer": "TOAL-002",
-      "sektor": "Odcinek 1",
+      "sektor": "Odcinek 2",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 41",
+      "uwagi": "",
       "lat": 50.237283072781345,
       "lng": 19.042817677495563
     },
     {
       "typ": "Punkt żywieniowy",
       "numer": "ZYW-002",
-      "sektor": "Odcinek 1",
+      "sektor": "Odcinek 2",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 41",
+      "uwagi": "",
       "lat": 50.23713208321867,
       "lng": 19.042739879395203
     },
     {
       "typ": "Punkt żywieniowy",
-      "numer": "ZYW-003",
-      "sektor": "Odcinek 1",
+      "numer": "ZYW-004",
+      "sektor": "Odcinek 2",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 66",
-      "lat": 50.23893022958411,
-      "lng": 19.10395877893094
+      "uwagi": "",
+      "lat": 50.23854625003046,
+      "lng": 19.104452840741082
     },
     {
       "typ": "Toaleta",
-      "numer": "TOAL-003",
-      "sektor": "Odcinek 1",
+      "numer": "TOAL-004",
+      "sektor": "Odcinek 2",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 66",
-      "lat": 50.239067399957584,
-      "lng": 19.10350812289181
+      "uwagi": "",
+      "lat": 50.23880705912343,
+      "lng": 19.103868188434593
+    },
+    {
+      "typ": "Toaleta",
+      "numer": "TOAL-005",
+      "sektor": "Odcinek 3",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "",
+      "lat": 50.260489112079746,
+      "lng": 19.094485046351235
     },
     {
       "typ": "Punkt żywieniowy",
-      "numer": "ZYW-004",
-      "sektor": "Odcinek 1",
+      "numer": "ZYW-005",
+      "sektor": "Odcinek 3",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 80",
-      "lat": 50.26053016062813,
-      "lng": 19.09462178566303
+      "uwagi": "",
+      "lat": 50.26063035562609,
+      "lng": 19.094474244512696
     },
     {
       "typ": "Toaleta",
-      "numer": "TOAL-006",
-      "sektor": "Odcinek 1",
+      "numer": "TOAL-007",
+      "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 116",
+      "uwagi": "",
       "lat": 50.299442113081476,
       "lng": 19.03843224048615
     },
     {
       "typ": "Punkt żywieniowy",
-      "numer": "ZYW-006",
-      "sektor": "Odcinek 1",
+      "numer": "ZYW-007",
+      "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 116",
+      "uwagi": "",
       "lat": 50.299342739901924,
       "lng": 19.03864145278931
     },
     {
       "typ": "Toaleta",
-      "numer": "TOAL-008",
-      "sektor": "Odcinek 1",
+      "numer": "TOAL-003",
+      "sektor": "Odcinek 2",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 51",
+      "uwagi": "",
       "lat": 50.24749179940976,
       "lng": 19.05054834187205
     },
     {
       "typ": "Punkt żywieniowy",
-      "numer": "ZYW-008",
-      "sektor": "Odcinek 1",
+      "numer": "ZYW-003",
+      "sektor": "Odcinek 2",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 51",
+      "uwagi": "",
       "lat": 50.24642765215205,
       "lng": 19.050816607698128
     },
@@ -209,8 +224,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 7",
-      "lat": 50.27575447812796,
-      "lng": 18.998102652434113
+      "lat": 50.27589511955532,
+      "lng": 18.99827425391162
     },
     {
       "typ": "Wolontariusz",
@@ -819,8 +834,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 26",
-      "lat": 50.26207173921851,
-      "lng": 19.03429893112413
+      "lat": 50.262059723858016,
+      "lng": 19.034296274185184
     },
     {
       "typ": "Ochrona",
@@ -948,7 +963,7 @@
       "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 28 ",
+      "uwagi": "Mapa 28",
       "lat": 50.257652813133184,
       "lng": 19.036079943180088
     },
@@ -1279,8 +1294,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 28",
-      "lat": 50.25769881515666,
-      "lng": 19.036530403610005
+      "lat": 50.25772141906619,
+      "lng": 19.03652251047534
     },
     {
       "typ": "Wolontariusz",
@@ -1444,71 +1459,11 @@
     },
     {
       "typ": "Wolontariusz",
-      "numer": "WOL-101",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa U1\r\r\nUltramarathon",
-      "lat": 50.28060889003809,
-      "lng": 18.99042600551002
-    },
-    {
-      "typ": "Wolontariusz",
-      "numer": "WOL-102",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa U1\r\r\nUltramarathon",
-      "lat": 50.28028304294095,
-      "lng": 18.990967622673338
-    },
-    {
-      "typ": "Wolontariusz",
-      "numer": "WOL-103",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa U2\r\r\nUltramarathon",
-      "lat": 50.28282459114463,
-      "lng": 18.98706905160652
-    },
-    {
-      "typ": "Wolontariusz",
-      "numer": "WOL-104",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa U3\r\r\nUltramarathon",
-      "lat": 50.284146865731216,
-      "lng": 18.985710897325482
-    },
-    {
-      "typ": "Wolontariusz",
-      "numer": "WOL-105",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa U3\r\r\nUltramarathon",
-      "lat": 50.28511028569938,
-      "lng": 18.984890163829238
-    },
-    {
-      "typ": "Wolontariusz",
-      "numer": "WOL-106",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa U5\r\r\nUltramarathon",
-      "lat": 50.286669421915704,
-      "lng": 18.98255135244256
-    },
-    {
-      "typ": "Wolontariusz",
       "numer": "WOL-107",
       "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa U5\r\r\nUltramarathon",
+      "uwagi": "Mapa U16",
       "lat": 50.28650737526373,
       "lng": 18.982405959085764
     },
@@ -1518,9 +1473,9 @@
       "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 140",
-      "lat": 50.291124792426004,
-      "lng": 18.98084789420949
+      "uwagi": "Mapa 140\r\r\r\r\nU6\r\r\r\r\nUltramarathon",
+      "lat": 50.29118480338646,
+      "lng": 18.980794268747776
     },
     {
       "typ": "Wolontariusz",
@@ -1528,19 +1483,9 @@
       "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa U7\r\r\nUltramarathon",
+      "uwagi": "Mapa U7",
       "lat": 50.290792450326116,
       "lng": 18.978109135118252
-    },
-    {
-      "typ": "Wolontariusz",
-      "numer": "WOL-110",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa U8\r\r\nUltramarathon",
-      "lat": 50.28734922373572,
-      "lng": 18.97863974079493
     },
     {
       "typ": "Płoty",
@@ -1599,8 +1544,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 6",
-      "lat": 50.278315409676594,
-      "lng": 18.99430703934784
+      "lat": 50.278296639229616,
+      "lng": 18.994221419243395
     },
     {
       "typ": "Płoty",
@@ -2215,7 +2160,7 @@
     {
       "typ": "Płoty",
       "numer": "PLOT-074",
-      "sektor": "Odcinek 2",
+      "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 44A",
@@ -2369,8 +2314,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 5",
-      "lat": 50.28007604353907,
-      "lng": 18.990099545180207
+      "lat": 50.28007412652589,
+      "lng": 18.99010955913012
     },
     {
       "typ": "Płoty",
@@ -2469,8 +2414,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 32",
-      "lat": 50.25149957728485,
-      "lng": 19.030165582453044
+      "lat": 50.25153048132496,
+      "lng": 19.02988145735515
     },
     {
       "typ": "Płoty",
@@ -2491,16 +2436,6 @@
       "uwagi": "Mapa 39A",
       "lat": 50.24193239260053,
       "lng": 19.036225650073117
-    },
-    {
-      "typ": "Wolontariusz",
-      "numer": "WOL-113",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa 28",
-      "lat": 50.257492861829085,
-      "lng": 19.036269951364638
     },
     {
       "typ": "Kierowanie ruchem",
@@ -3809,8 +3744,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 67",
-      "lat": 50.23774303501932,
-      "lng": 19.10639798869579
+      "lat": 50.234529426867866,
+      "lng": 19.111134543321267
     },
     {
       "typ": "Wolontariusz",
@@ -3819,8 +3754,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 67",
-      "lat": 50.237527647241045,
-      "lng": 19.10594524520761
+      "lat": 50.23444893651042,
+      "lng": 19.110310055204927
     },
     {
       "typ": "Wolontariusz",
@@ -4349,8 +4284,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 79",
-      "lat": 50.25838095659407,
-      "lng": 19.094095632809463
+      "lat": 50.25867501020791,
+      "lng": 19.093937928124234
     },
     {
       "typ": "Płoty",
@@ -4499,8 +4434,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 82A",
-      "lat": 50.26254190659749,
-      "lng": 19.096584332329208
+      "lat": 50.262543267519945,
+      "lng": 19.096496731190268
     },
     {
       "typ": "Płoty",
@@ -4519,8 +4454,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 83",
-      "lat": 50.26320018281173,
-      "lng": 19.09061045589396
+      "lat": 50.263266884451255,
+      "lng": 19.090633384846534
     },
     {
       "typ": "Wolontariusz",
@@ -4529,8 +4464,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 83",
-      "lat": 50.26361878883184,
-      "lng": 19.090771332279132
+      "lat": 50.263551436609724,
+      "lng": 19.09075677956426
     },
     {
       "typ": "Wolontariusz",
@@ -4539,8 +4474,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 83",
-      "lat": 50.263042253480435,
-      "lng": 19.090599730801625
+      "lat": 50.26316746877061,
+      "lng": 19.090590480733475
     },
     {
       "typ": "Wolontariusz",
@@ -4829,8 +4764,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 92",
-      "lat": 50.25971684087121,
-      "lng": 19.062561192495295
+      "lat": 50.259782625796404,
+      "lng": 19.062612336972748
     },
     {
       "typ": "Wolontariusz",
@@ -4839,8 +4774,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 92",
-      "lat": 50.25976886496462,
-      "lng": 19.062593624216884
+      "lat": 50.2597242618077,
+      "lng": 19.062545316376756
     },
     {
       "typ": "Ochrona",
@@ -4979,8 +4914,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 93",
-      "lat": 50.25979765030605,
-      "lng": 19.06204595004803
+      "lat": 50.259859787851646,
+      "lng": 19.062083946476474
     },
     {
       "typ": "Kierowanie ruchem",
@@ -5194,63 +5129,93 @@
     },
     {
       "typ": "Punkt żywieniowy",
-      "numer": "ZYW-009",
+      "numer": "ZYW-006",
       "sektor": "Odcinek 3",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 101",
+      "uwagi": "",
       "lat": 50.27145094356532,
       "lng": 19.049539947337657
     },
     {
       "typ": "Toaleta",
-      "numer": "TOAL-009",
+      "numer": "TOAL-006",
       "sektor": "Odcinek 3",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 101",
+      "uwagi": "",
       "lat": 50.27172634852835,
       "lng": 19.04929534797625
     },
     {
       "typ": "Medyczny",
-      "numer": "MED-002",
-      "sektor": "Odcinek 2",
+      "numer": "MED-001",
+      "sektor": "",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 41",
-      "lat": 50.23707703596439,
-      "lng": 19.042830393145376
+      "uwagi": "",
+      "lat": 50.264687835899956,
+      "lng": 19.024304736748128
+    },
+    {
+      "typ": "Medyczny",
+      "numer": "MED-002",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "",
+      "lat": 50.23721456677559,
+      "lng": 19.04308310106876
     },
     {
       "typ": "Medyczny",
       "numer": "MED-003",
-      "sektor": "Odcinek 2",
+      "sektor": "",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 51",
+      "uwagi": "",
       "lat": 50.246135889926364,
       "lng": 19.05198406534984
     },
     {
       "typ": "Medyczny",
       "numer": "MED-004",
-      "sektor": "Odcinek 2",
+      "sektor": "",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 66",
-      "lat": 50.238737773358764,
-      "lng": 19.104323686643305
+      "uwagi": "",
+      "lat": 50.23847343558126,
+      "lng": 19.104597175562137
     },
     {
       "typ": "Medyczny",
       "numer": "MED-005",
-      "sektor": "Odcinek 3",
+      "sektor": "",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 101",
+      "uwagi": "",
       "lat": 50.2720969060657,
       "lng": 19.049016735173186
+    },
+    {
+      "typ": "Medyczny",
+      "numer": "MED-006",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "",
+      "lat": 50.26073921530154,
+      "lng": 19.09452279195068
+    },
+    {
+      "typ": "Medyczny",
+      "numer": "MED-007",
+      "sektor": "",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "",
+      "lat": 50.295566644695356,
+      "lng": 19.008223891605166
     },
     {
       "typ": "Kierowanie ruchem",
@@ -5368,7 +5333,7 @@
       "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 104",
+      "uwagi": "Mapa 105",
       "lat": 50.27402285272809,
       "lng": 19.05478156964433
     },
@@ -5639,8 +5604,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 109",
-      "lat": 50.283899133833465,
-      "lng": 19.062482876989815
+      "lat": 50.283819083133885,
+      "lng": 19.062456795991814
     },
     {
       "typ": "Wolontariusz",
@@ -5649,8 +5614,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 109",
-      "lat": 50.28420356354109,
-      "lng": 19.06150377132727
+      "lat": 50.28425619925767,
+      "lng": 19.06159308444409
     },
     {
       "typ": "Wolontariusz",
@@ -5659,8 +5624,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 109",
-      "lat": 50.28324992285934,
-      "lng": 19.06274788203908
+      "lat": 50.28327926642412,
+      "lng": 19.062800091603794
     },
     {
       "typ": "Wolontariusz",
@@ -5689,8 +5654,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 111",
-      "lat": 50.293186310898434,
-      "lng": 19.04780542119526
+      "lat": 50.29322748659287,
+      "lng": 19.0479004055512
     },
     {
       "typ": "Wolontariusz",
@@ -5699,8 +5664,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 111",
-      "lat": 50.29213395916327,
-      "lng": 19.049025199060935
+      "lat": 50.292206215697504,
+      "lng": 19.049118128443965
     },
     {
       "typ": "Kierowanie ruchem",
@@ -5729,8 +5694,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 112",
-      "lat": 50.29409509581572,
-      "lng": 19.045507368772306
+      "lat": 50.29413566086704,
+      "lng": 19.045534720598308
     },
     {
       "typ": "Płoty",
@@ -5749,8 +5714,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 112",
-      "lat": 50.29370418982483,
-      "lng": 19.046708579114743
+      "lat": 50.29379641183837,
+      "lng": 19.04672026259844
     },
     {
       "typ": "Wolontariusz",
@@ -5869,16 +5834,16 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 116",
-      "lat": 50.29915428461276,
-      "lng": 19.039328607442528
+      "lat": 50.29914913002461,
+      "lng": 19.03932809829712
     },
     {
       "typ": "Medyczny",
       "numer": "MED-008",
-      "sektor": "Odcinek 4",
+      "sektor": "",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 116",
+      "uwagi": "",
       "lat": 50.29925302098825,
       "lng": 19.03877547713457
     },
@@ -6055,10 +6020,10 @@
     {
       "typ": "Medyczny",
       "numer": "MED-009",
-      "sektor": "Odcinek 4",
+      "sektor": "",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 120",
+      "uwagi": "",
       "lat": 50.30171343564185,
       "lng": 19.032705239428118
     },
@@ -6119,8 +6084,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 123",
-      "lat": 50.299181690262294,
-      "lng": 19.027199139772506
+      "lat": 50.29917506614487,
+      "lng": 19.027172645257526
     },
     {
       "typ": "Płoty",
@@ -6474,31 +6439,31 @@
     },
     {
       "typ": "Punkt żywieniowy",
-      "numer": "ZYW-010",
+      "numer": "ZYW-008",
       "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 129",
+      "uwagi": "",
       "lat": 50.293434864878535,
       "lng": 19.012883196467016
     },
     {
       "typ": "Medyczny",
       "numer": "MED-010",
-      "sektor": "Odcinek 4",
+      "sektor": "",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 129",
+      "uwagi": "",
       "lat": 50.29336285512227,
       "lng": 19.013047793778757
     },
     {
       "typ": "Toaleta",
-      "numer": "TOAL-010",
+      "numer": "TOAL-008",
       "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 129",
+      "uwagi": "",
       "lat": 50.293476013261746,
       "lng": 19.012647244435463
     },
@@ -6729,8 +6694,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 135",
-      "lat": 50.29480894512333,
-      "lng": 18.993086837342688
+      "lat": 50.29508671714056,
+      "lng": 18.993218202877134
     },
     {
       "typ": "Wolontariusz",
@@ -6739,36 +6704,36 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 135",
-      "lat": 50.29517120233161,
-      "lng": 18.992410037153874
+      "lat": 50.29502314715451,
+      "lng": 18.99213469806698
     },
     {
       "typ": "Punkt żywieniowy",
-      "numer": "ZYW-011",
+      "numer": "ZYW-009",
       "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 135",
+      "uwagi": "",
       "lat": 50.29500620256553,
       "lng": 18.99396456531795
     },
     {
       "typ": "Toaleta",
-      "numer": "TOAL-011",
+      "numer": "TOAL-009",
       "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 135",
+      "uwagi": "",
       "lat": 50.29506792308855,
       "lng": 18.993557011808885
     },
     {
       "typ": "Medyczny",
       "numer": "MED-011",
-      "sektor": "Odcinek 4",
+      "sektor": "",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 135",
+      "uwagi": "",
       "lat": 50.29495133981121,
       "lng": 18.99432921845759
     },
@@ -6779,8 +6744,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 136",
-      "lat": 50.295355951137196,
-      "lng": 18.988805795900785
+      "lat": 50.29539165057182,
+      "lng": 18.98895079803924
     },
     {
       "typ": "Płoty",
@@ -6889,8 +6854,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 140",
-      "lat": 50.29109744916881,
-      "lng": 18.980807641419748
+      "lat": 50.29110945137385,
+      "lng": 18.980845179242955
     },
     {
       "typ": "Płoty",
@@ -6899,8 +6864,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 140",
-      "lat": 50.29070743641953,
-      "lng": 18.980865352820405
+      "lat": 50.29073419428841,
+      "lng": 18.98092297734332
     },
     {
       "typ": "Płoty",
@@ -6909,8 +6874,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 140",
-      "lat": 50.29102377956182,
-      "lng": 18.98101421831034
+      "lat": 50.2910297829458,
+      "lng": 18.98109057975962
     },
     {
       "typ": "Wolontariusz",
@@ -6919,8 +6884,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 140",
-      "lat": 50.29063652628002,
-      "lng": 18.98092573629854
+      "lat": 50.290586802345224,
+      "lng": 18.98108393141059
     },
     {
       "typ": "Wolontariusz",
@@ -6929,8 +6894,8 @@
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 141",
-      "lat": 50.290809623644606,
-      "lng": 18.978489703685472
+      "lat": 50.29074613829436,
+      "lng": 18.978149711739434
     },
     {
       "typ": "Płoty",
@@ -7043,24 +7008,14 @@
       "lng": 18.97269638117044
     },
     {
-      "typ": "Toaleta",
-      "numer": "TOAL-012",
-      "sektor": "Odcinek 3",
+      "typ": "Wolontariusz",
+      "numer": "WOL-281",
+      "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 80",
-      "lat": 50.260499445185566,
-      "lng": 19.094774670640945
-    },
-    {
-      "typ": "Medyczny",
-      "numer": "MED-012",
-      "sektor": "Odcinek 3",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa 80",
-      "lat": 50.260588554737474,
-      "lng": 19.094678248697996
+      "uwagi": "Mapa U1",
+      "lat": 50.280253731644095,
+      "lng": 18.9900662029633
     },
     {
       "typ": "Ochrona",
@@ -7068,99 +7023,429 @@
       "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 9A",
-      "lat": 50.27590983286082,
-      "lng": 19.00074413788696
-    },
-    {
-      "typ": "Wolontariusz",
-      "numer": "WOL-281",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa 8",
-      "lat": 50.27593775335577,
-      "lng": 18.998413228994302
-    },
-    {
-      "typ": "Medyczny",
-      "numer": "MED-013",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa 24",
-      "lat": 50.264537539601385,
-      "lng": 19.02469168973242
+      "uwagi": "Mapa U1",
+      "lat": 50.28011312932966,
+      "lng": 18.990186815327558
     },
     {
       "typ": "Wolontariusz",
       "numer": "WOL-282",
-      "sektor": "Odcinek 2",
+      "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 41",
-      "lat": 50.235180503928134,
-      "lng": 19.036506814991107
+      "uwagi": "Mapa U2",
+      "lat": 50.27968609323258,
+      "lng": 18.989484321779067
     },
     {
       "typ": "Wolontariusz",
       "numer": "WOL-283",
-      "sektor": "Odcinek 2",
+      "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 41",
-      "lat": 50.234747914978485,
-      "lng": 19.032956809425436
+      "uwagi": "Mapa U2",
+      "lat": 50.27839124148758,
+      "lng": 18.9873419845835
     },
     {
       "typ": "Wolontariusz",
       "numer": "WOL-284",
-      "sektor": "Odcinek 2",
+      "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 41",
-      "lat": 50.23415209561537,
-      "lng": 19.03033682827752
+      "uwagi": "Mapa U2",
+      "lat": 50.2775337043894,
+      "lng": 18.985534806523624
     },
     {
       "typ": "Wolontariusz",
       "numer": "WOL-285",
-      "sektor": "Odcinek 2",
+      "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 41",
-      "lat": 50.23406969624549,
-      "lng": 19.029543119032073
+      "uwagi": "Mapa U2",
+      "lat": 50.277122081095385,
+      "lng": 18.986079104960066
     },
     {
       "typ": "Wolontariusz",
       "numer": "WOL-286",
-      "sektor": "Odcinek 4",
+      "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 121",
-      "lat": 50.30026214936742,
-      "lng": 19.031023604815402
+      "uwagi": "Mapa U2",
+      "lat": 50.27821802023876,
+      "lng": 18.987588661707388
     },
     {
       "typ": "Wolontariusz",
       "numer": "WOL-287",
-      "sektor": "Odcinek 4",
+      "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 122",
-      "lat": 50.30079014180462,
-      "lng": 19.028117104790343
+      "uwagi": "Mapa U3",
+      "lat": 50.277895168198796,
+      "lng": 18.993550314791545
     },
     {
       "typ": "Wolontariusz",
       "numer": "WOL-288",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U3",
+      "lat": 50.27819702072714,
+      "lng": 18.994239401974582
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-289",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U4",
+      "lat": 50.28039383904084,
+      "lng": 18.997588312058824
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-290",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U5",
+      "lat": 50.28351421847391,
+      "lng": 19.000609823240044
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-291",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U6",
+      "lat": 50.29162403092007,
+      "lng": 18.998386345132808
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-051",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U6",
+      "lat": 50.292286064584886,
+      "lng": 18.99947466684252
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-292",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U8",
+      "lat": 50.2949821069661,
+      "lng": 18.992185590779506
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-293",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U9",
+      "lat": 50.29535321389149,
+      "lng": 18.988833696181185
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-052",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U10",
+      "lat": 50.29705984439432,
+      "lng": 18.982775461882483
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-294",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U10",
+      "lat": 50.29609977656036,
+      "lng": 18.98298996372937
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-295",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U11",
+      "lat": 50.29513052169718,
+      "lng": 18.983805256061416
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-053",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U11",
+      "lat": 50.293906361332695,
+      "lng": 18.98296333631246
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-054",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U12",
+      "lat": 50.29314168831367,
+      "lng": 18.982657671180693
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-055",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U12",
+      "lat": 50.29223298018148,
+      "lng": 18.982116054017332
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-275",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U13",
+      "lat": 50.291019985068175,
+      "lng": 18.980920107012587
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-056",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U13",
+      "lat": 50.29105256252785,
+      "lng": 18.981016632843673
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-057",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U14",
+      "lat": 50.29096511771726,
+      "lng": 18.977525615285877
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-058",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U14",
+      "lat": 50.29064968945558,
+      "lng": 18.975486128438995
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-296",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U14",
+      "lat": 50.29069647956549,
+      "lng": 18.97761314545787
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-297",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U15",
+      "lat": 50.29055207179255,
+      "lng": 18.981021675302085
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-298",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U15",
+      "lat": 50.28953213557924,
+      "lng": 18.98096548836622
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-059",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U16",
+      "lat": 50.28656910681155,
+      "lng": 18.982625190790753
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-276",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U16",
+      "lat": 50.28669256966696,
+      "lng": 18.982534027505874
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-277",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U16",
+      "lat": 50.28647992344899,
+      "lng": 18.982523302413497
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-278",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa U17",
+      "lat": 50.28566070066891,
+      "lng": 18.98030309598695
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-060",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 9A",
+      "lat": 50.27585814418104,
+      "lng": 19.000799979465047
+    },
+    {
+      "typ": "Ochrona",
+      "numer": "OCHR-061",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 26",
+      "lat": 50.26236409513687,
+      "lng": 19.035362947293265
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-299",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 28",
+      "lat": 50.25769014669411,
+      "lng": 19.035910788057496
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-300",
+      "sektor": "Odcinek 1",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 8",
+      "lat": 50.275970595755396,
+      "lng": 18.998488759502195
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-279",
+      "sektor": "Odcinek 3",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 67",
+      "lat": 50.234454978259244,
+      "lng": 19.111027833364837
+    },
+    {
+      "typ": "Kierowanie ruchem",
+      "numer": "RUCH-107",
+      "sektor": "Odcinek 3",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 82",
+      "lat": 50.26258361633999,
+      "lng": 19.094966436336627
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-280",
+      "sektor": "Odcinek 3",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 82",
+      "lat": 50.262689985169004,
+      "lng": 19.095277464014565
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-281",
+      "sektor": "Odcinek 3",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 82",
+      "lat": 50.26252528494578,
+      "lng": 19.094864547959336
+    },
+    {
+      "typ": "Płoty",
+      "numer": "PLOT-282",
+      "sektor": "Odcinek 3",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 82",
+      "lat": 50.262689985169004,
+      "lng": 19.09554022877699
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-301",
+      "sektor": "Odcinek 4",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 122",
+      "lat": 50.30082241837364,
+      "lng": 19.028105499924674
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-302",
       "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "Mapa 123",
-      "lat": 50.29942963022516,
-      "lng": 19.028360638292188
+      "lat": 50.299448024202526,
+      "lng": 19.0283616161744
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-303",
+      "sektor": "Odcinek 4",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 141",
+      "lat": 50.29076284919012,
+      "lng": 18.97771239187108
     }
   ]
 }
