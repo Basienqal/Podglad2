@@ -1,6 +1,6 @@
 {
   "projectName": "Silesia Marathon 2026",
-  "generatedAt": "2026-08-19T11:37:54.452Z",
+  "generatedAt": "2026-08-20T18:45:48.650Z",
   "drawnRoutes": {
     "SM": [],
     "HM": [],
@@ -1473,7 +1473,7 @@
       "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
-      "uwagi": "Mapa 140\r\r\r\r\nU6\r\r\r\r\nUltramarathon",
+      "uwagi": "Mapa 140U6",
       "lat": 50.29118480338646,
       "lng": 18.980794268747776
     },
@@ -5150,7 +5150,7 @@
     {
       "typ": "Medyczny",
       "numer": "MED-001",
-      "sektor": "",
+      "sektor": "Odcinek 1",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
@@ -5160,17 +5160,17 @@
     {
       "typ": "Medyczny",
       "numer": "MED-002",
-      "sektor": "",
+      "sektor": "Odcinek 2",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
-      "lat": 50.23721456677559,
-      "lng": 19.04308310106876
+      "lat": 50.2372041741537,
+      "lng": 19.042831151247917
     },
     {
       "typ": "Medyczny",
       "numer": "MED-003",
-      "sektor": "",
+      "sektor": "Odcinek 2",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
@@ -5180,7 +5180,7 @@
     {
       "typ": "Medyczny",
       "numer": "MED-004",
-      "sektor": "",
+      "sektor": "Odcinek 2",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
@@ -5190,7 +5190,7 @@
     {
       "typ": "Medyczny",
       "numer": "MED-005",
-      "sektor": "",
+      "sektor": "Odcinek 3",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
@@ -5200,7 +5200,7 @@
     {
       "typ": "Medyczny",
       "numer": "MED-006",
-      "sektor": "",
+      "sektor": "Odcinek 3",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
@@ -5840,12 +5840,12 @@
     {
       "typ": "Medyczny",
       "numer": "MED-008",
-      "sektor": "",
+      "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
-      "lat": 50.29925302098825,
-      "lng": 19.03877547713457
+      "lat": 50.299265646677576,
+      "lng": 19.038797013424723
     },
     {
       "typ": "Wolontariusz",
@@ -6020,7 +6020,7 @@
     {
       "typ": "Medyczny",
       "numer": "MED-009",
-      "sektor": "",
+      "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
@@ -6450,7 +6450,7 @@
     {
       "typ": "Medyczny",
       "numer": "MED-010",
-      "sektor": "",
+      "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
@@ -6730,7 +6730,7 @@
     {
       "typ": "Medyczny",
       "numer": "MED-011",
-      "sektor": "",
+      "sektor": "Odcinek 4",
       "liczba_osob": 1,
       "telefon": "",
       "uwagi": "",
@@ -7338,16 +7338,6 @@
       "lng": 19.000799979465047
     },
     {
-      "typ": "Ochrona",
-      "numer": "OCHR-061",
-      "sektor": "Odcinek 1",
-      "liczba_osob": 1,
-      "telefon": "",
-      "uwagi": "Mapa 26",
-      "lat": 50.26236409513687,
-      "lng": 19.035362947293265
-    },
-    {
       "typ": "Wolontariusz",
       "numer": "WOL-299",
       "sektor": "Odcinek 1",
@@ -7446,6 +7436,46 @@
       "uwagi": "Mapa 141",
       "lat": 50.29076284919012,
       "lng": 18.97771239187108
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-304",
+      "sektor": "Odcinek 2",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 41",
+      "lat": 50.234008464663724,
+      "lng": 19.02947602807776
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-305",
+      "sektor": "Odcinek 2",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 41",
+      "lat": 50.234646461609806,
+      "lng": 19.033114275285108
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-306",
+      "sektor": "Odcinek 2",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 41",
+      "lat": 50.23409026886661,
+      "lng": 19.03039010182989
+    },
+    {
+      "typ": "Wolontariusz",
+      "numer": "WOL-307",
+      "sektor": "Odcinek 2",
+      "liczba_osob": 1,
+      "telefon": "",
+      "uwagi": "Mapa 41",
+      "lat": 50.23517518202924,
+      "lng": 19.036514129557975
     }
   ]
 }
