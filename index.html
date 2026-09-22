@@ -361,7 +361,7 @@ async function syncPointsData() {
         pointsArray.forEach((p, index) => {
             let typ = p.typ;
             if (typ === "Policja") typ = "Kierowanie ruchem";
-            if (typ === "Koordynator") typ = "Lider";
+            if (typ === "Koordynator") typ = "Punkt kibicowania";
             if (!CONFIG_TYPES[typ]) return;
 
             createReadOnlyMarker(index, typ, p.numer||"", p.sektor||"", p.liczba_osob||0, p.telefon||"", p.uwagi||"", p.lat, p.lng);
